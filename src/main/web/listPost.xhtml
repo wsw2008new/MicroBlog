@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head jsf:id="head">
+    <title>içerikler</title>
+</head>
+<body jsf:id="body">
+
+<br/>
+
+<h:dataTable value="#{post.list()}" var="o">
+    <f:facet name="header">içerikler</f:facet>
+
+    <h:column>
+        <f:facet name="header">baslık</f:facet>
+        #{o.Post_Title}
+    </h:column>
+    <h:column>
+        <f:facet name="header">içerik</f:facet>
+        #{o.Post_Content}
+    </h:column>
+    <h:column>
+        <f:facet name="header">yazar</f:facet>
+        #{o.User_NickName}
+    </h:column>
+    <h:column>
+        <f:facet name="header">tarih</f:facet>
+        #{o.time}
+    </h:column>
+</h:dataTable>
+
+</body>
+</html>

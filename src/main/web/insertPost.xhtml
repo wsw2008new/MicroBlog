@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://java.sun.com/jsf/composite" lang="tr"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head jsf:id="head">
+    <title>içerik gir</title>
+</head>
+<body jsf:id="body">
+<form jsf:id="form">
+    <h:inputText p:placeholder="baslık" value="#{post.post.title}"/><br/>
+    <h:inputText p:placeholder="icerik" value="#{post.post.content}"/>
+    <h:commandButton value="içerikler" action="#{post.insert()}">
+        <f:setPropertyActionListener value="#{user.currentuser.email}" target="#{post.user.email}"/>
+    </h:commandButton>
+</form>
+</body>
+</html>
