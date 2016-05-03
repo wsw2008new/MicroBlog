@@ -7,7 +7,8 @@ import org.junit.Test;
  * Created by alikemal on 30.04.2016.
  */
 public class UserDBTest {
-    UserDB userDB=new UserDB();
+    UserDB userDB = new UserDB();
+
     @Test
     public void insert() throws Exception {
         UserDataEntity user = new UserDataEntity();

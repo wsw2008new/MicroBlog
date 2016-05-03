@@ -7,12 +7,12 @@ import org.junit.Test;
  * Created by alikemal on 03.05.2016.
  */
 public class UserTest {
-    User user=new User();
+    User user = new User();
 
 
     @Test
     public void isUser() throws Exception {
-        UserDataEntity person=new UserDataEntity();
+        UserDataEntity person = new UserDataEntity();
         person.setUserEmail("alikemal@gmail.com");
         person.setUserSifre("23456");
         System.out.println(user.isUser(person));
@@ -21,11 +21,11 @@ public class UserTest {
     @Test
     public void doLogin() throws Exception {
 
-        UserDataEntity person=new UserDataEntity();
+        UserDataEntity person = new UserDataEntity();
         person.setUserEmail("alikemal@gmail.com");
         person.setUserSifre("23456");
         user.setCurrentuser(person);
-        System.out.println( user.doLogin());
+        System.out.println(user.doLogin());
     }
 
 }

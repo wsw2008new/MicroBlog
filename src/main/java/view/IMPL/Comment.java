@@ -28,12 +28,12 @@ public class Comment extends BaseBusiness {
         return postID;
     }
 
-    public void setPostID(ActionEvent event) {
-        setPostID((Integer) event.getComponent().getAttributes().get("postid"));
-    }
-
     public void setPostID(int postID) {
         this.postID = postID;
+    }
+
+    public void setPostID(ActionEvent event) {
+        setPostID((Integer) event.getComponent().getAttributes().get("postid"));
     }
 
     public List<CommentEntity> listByPost() {

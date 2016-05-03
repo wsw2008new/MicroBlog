@@ -7,7 +7,6 @@ import presentation.UserDao;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -70,12 +69,12 @@ public class User extends BaseBusiness {
     }
 
     public Boolean isUser(UserDataEntity user) {
-            List<UserDataEntity> users= userdb.list();
+        List<UserDataEntity> users = userdb.list();
 /*        rs.stream()
                 .filter(userDataEntity -> userDataEntity.getUserEmail().equals(user.getUserEmail()))
                 .filter(userDataEntity -> userDataEntity.getUserSifre().equals(user.getUserSifre()))
                 .forEach(userDataEntity -> setCurrentuser(userDataEntity));*/
-        for(UserDataEntity us:users) {
+        for (UserDataEntity us : users) {
             if (us.getUserEmail().equals(user.getUserEmail())) {
                 if (us.getUserSifre().equals(user.getUserSifre())) {
                     setCurrentuser(us);

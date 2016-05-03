@@ -16,14 +16,19 @@ public class CommentDB extends Base implements CommentDao {
     }
 
     @Override
-    public List<CommentEntity> listPostComment(int id) {
-        return getManager().createQuery("Select a from CommentEntity a where a.commentPostid= ?1 ", CommentEntity.class)
-                .setParameter(1, id).getResultList();
+    public List<CommentEntity> listByPost(int id) {
+        return getManager()
+                .createQuery("Select a from CommentEntity a where a.commentPostid= ?1 ", CommentEntity.class)
+                .setParameter(1, id)
+                .getResultList();
     }
 
     @Override
     public List<CommentEntity> listAllByUser(int id) {
-        return null;
+        return getManager()
+                .createQuery("Select a from CommentEntity a where a.commentAuthor= ?1 ", CommentEntity.class)
+                .setParameter(1, id)
+                .getResultList();
     }
 
     @Override

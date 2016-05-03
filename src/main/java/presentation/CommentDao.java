@@ -8,7 +8,7 @@ import java.util.List;
  * Created by alikemal on 19.04.2016.
  */
 public interface CommentDao {
-    List<CommentEntity> listPostComment(int id);
+    List<CommentEntity> listByPost(int id);
 
     List<CommentEntity> listAllByUser(int id);
 

@@ -4,7 +4,6 @@ import models.UserDataEntity;
 import presentation.UserDao;
 
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
