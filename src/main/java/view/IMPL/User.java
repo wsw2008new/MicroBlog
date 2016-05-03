@@ -54,7 +54,7 @@ public class User extends BaseBusiness {
 
 
     public String delete(ActionEvent event) {
-        userdb.delete((Integer) event.getComponent().getAttributes().get("postid"));
+        userdb.delete((Integer) event.getComponent().getAttributes().get("userid"));
         return "index";
     }
 
@@ -65,38 +65,31 @@ public class User extends BaseBusiness {
     }
 
 
-    public Boolean isAdmin(Byte rt) {
+    public Boolean isAdmin(Boolean rt) {
         return rt.equals(true);
     }
 
     public Boolean isUser(UserDataEntity user) {
-        List<UserDataEntity> rs = userdb.list();
-        Iterator<UserDataEntity> itr = rs.iterator();
-
-        rs.stream()
+            List<UserDataEntity> users= userdb.list();
+/*        rs.stream()
                 .filter(userDataEntity -> userDataEntity.getUserEmail().equals(user.getUserEmail()))
                 .filter(userDataEntity -> userDataEntity.getUserSifre().equals(user.getUserSifre()))
-                .forEach(userDataEntity -> setCurrentuser(userDataEntity));
-        try {
-            while (itr.hasNext()) {
-                UserDataEntity us = itr.next();
-                if (us.getUserEmail().equals(user.getUserEmail())) {
-                    if (itr.next().equals(user.getUserSifre())) {
-                        setCurrentuser(us);
-                        System.out.println(getCurrentuser().getUserNickName());
-                        setErrorMesg("giriş başarili");
-                        return true;
-                    } else {
-                        setErrorMesg("sifre hatali");
-                        return false;
-                    }
-
+                .forEach(userDataEntity -> setCurrentuser(userDataEntity));*/
+        for(UserDataEntity us:users) {
+            if (us.getUserEmail().equals(user.getUserEmail())) {
+                if (us.getUserSifre().equals(user.getUserSifre())) {
+                    setCurrentuser(us);
+                    System.out.println(getCurrentuser().getUserNickName());
+                    setErrorMesg("giriş başarili");
+                    return true;
                 } else {
-                    setErrorMesg("kullanıcı adi hatali");
+                    setErrorMesg("sifre hatali");
+                    return false;
                 }
+
+            } else {
+                setErrorMesg("kullanıcı adi hatali");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
 
         setErrorMesg("kullanici kontrol başarisiz");

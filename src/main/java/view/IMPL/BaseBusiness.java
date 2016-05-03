@@ -50,7 +50,7 @@ public class BaseBusiness {
             user.setUserNickName(rs.getString("User_NickName"));
             user.setUserSifre(rs.getString("User_Sifre"));
             user.setUserPoint(rs.getInt("User_Point"));
-            user.setUsePermission(rs.getByte("Use_Permission"));
+            user.setUsePermission(rs.getBoolean("Use_Permission"));
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("row hatası");

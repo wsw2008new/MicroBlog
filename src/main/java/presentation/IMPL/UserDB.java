@@ -4,6 +4,7 @@ import models.UserDataEntity;
 import presentation.UserDao;
 
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -16,9 +17,8 @@ public class UserDB extends Base implements UserDao {
     }
 
     @Override
-    public List<UserDataEntity> list() {
-        Query query = getManager().createQuery("Select a from PostEntity a ", UserDataEntity.class);
-        return query.getResultList();
+    public List list() {
+        return getManager().createQuery("Select a from UserDataEntity a ", UserDataEntity.class).getResultList();
     }
 
     @Override

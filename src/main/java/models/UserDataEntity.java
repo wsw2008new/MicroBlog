@@ -17,7 +17,7 @@ public class UserDataEntity {
     private String userNickName;
     private Integer userPoint;
     private Date dateOfBirth;
-    private Byte usePermission;
+    private Boolean usePermission;
 
     @Id
     @Column(name = "User_Id", nullable = false)
@@ -101,11 +101,11 @@ public class UserDataEntity {
 
     @Basic
     @Column(name = "Use_Permission", nullable = true)
-    public Byte getUsePermission() {
+    public Boolean getUsePermission() {
         return usePermission;
     }
 
-    public void setUsePermission(Byte usePermission) {
+    public void setUsePermission(Boolean usePermission) {
         this.usePermission = usePermission;
     }
 
