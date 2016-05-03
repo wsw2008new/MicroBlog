@@ -17,8 +17,8 @@ import java.util.List;
 
 public class User extends BaseBusiness {
     final private UserDao userdb = new UserDB();
-    private UserDataEntity currentuser = null;
-    private UserDataEntity usertemp = null;
+    private UserDataEntity currentuser = new UserDataEntity();
+    private UserDataEntity usertemp = new UserDataEntity();
     private String errorMesg;
 
     public UserDataEntity getUsertemp() {

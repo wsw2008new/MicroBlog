@@ -8,8 +8,8 @@
 </head>
 <body jsf:id="body">
 <form jsf:id="form">
-    <h:inputText value="#{user.currentuser.email}"/><br/>
-    <h:inputSecret value="#{user.currentuser.password}"/><br/>
+    <h:inputText value="#{user.currentuser.userEmail}"/><br/>
+    <h:inputSecret value="#{user.currentuser.userSifre}"/><br/>
     <h:commandButton value="giriş yap" action="#{user.doLogin()}"/><br/>
     <h:outputLabel value="#{user.errorMesg}"/>
 </form>

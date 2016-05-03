@@ -33,8 +33,8 @@ public class Post extends BaseBusiness {
         return user.getCurrentuser().getUserId();
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void listenerSetUserid(ActionEvent event) {
+        userid = (Integer) event.getComponent().getAttributes().get("userid");
     }
 
     public PostEntity getPost() {
@@ -67,8 +67,7 @@ public class Post extends BaseBusiness {
         return "postDetails";
     }
 
-    public List<PostEntity> listAutherPost(ActionEvent event) {
-        return postDB.listAuther(findIdbyUserEmail((String) event.getComponent().getAttributes().get("user_email")));
-
+    public List<PostEntity> listAutherPost() {
+        return postDB.listAuther(getUserid());
     }
 }

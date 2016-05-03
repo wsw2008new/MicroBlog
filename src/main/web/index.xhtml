@@ -10,8 +10,8 @@
     <h:form>
         <h:commandButton value="kullanıcı listele" action="listUser"/>
         <h:commandButton value="post gönder" action="insertPost"/>
-        <h:commandButton value="post listele" action="listUserPosts" actionListener="#{post.listenerlistAutherPost}">
-            <f:attribute name="user_email" value="#{user.currentuser.email}"/>
+        <h:commandButton value="post listele" action="listUserPosts" actionListener="#{post.listenerSetUserid}">
+            <f:attribute name="userid" value="#{user.currentuser.userId}"/>
         </h:commandButton>
         <h:commandButton value="tüm post listele" action="listPost"/>
     </h:form>

@@ -11,24 +11,20 @@
 
 <br/>
 
-<h:dataTable value="#{post.list()}" var="o">
+<h:dataTable value="#{post.listAutherPost()}" var="o">
     <f:facet name="header">içerikler</f:facet>
 
     <h:column>
         <f:facet name="header">baslık</f:facet>
-        #{o.Post_Title}
+        #{o.postTitle}
     </h:column>
     <h:column>
         <f:facet name="header">içerik</f:facet>
-        #{o.Post_Content}
-    </h:column>
-    <h:column>
-        <f:facet name="header">yazar</f:facet>
-        #{o.User_NickName}
+        #{o.postTitle}
     </h:column>
     <h:column>
         <f:facet name="header">tarih</f:facet>
-        #{o.time}
+        #{o.postCreateDate}
     </h:column>
 </h:dataTable>
 
