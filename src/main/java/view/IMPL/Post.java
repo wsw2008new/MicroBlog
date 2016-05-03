@@ -62,7 +62,6 @@ public class Post extends BaseBusiness {
         return "postDetails";
     }
 
-
     public String update() {
         postDB.update(post);
         return "postDetails";

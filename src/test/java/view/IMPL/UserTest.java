@@ -9,7 +9,6 @@ import org.junit.Test;
 public class UserTest {
     User user = new User();
 
-
     @Test
     public void isUser() throws Exception {
         UserDataEntity person = new UserDataEntity();

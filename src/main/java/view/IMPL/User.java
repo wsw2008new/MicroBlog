@@ -70,10 +70,7 @@ public class User extends BaseBusiness {
 
     public Boolean isUser(UserDataEntity user) {
         List<UserDataEntity> users = userdb.list();
-/*        rs.stream()
-                .filter(userDataEntity -> userDataEntity.getUserEmail().equals(user.getUserEmail()))
-                .filter(userDataEntity -> userDataEntity.getUserSifre().equals(user.getUserSifre()))
-                .forEach(userDataEntity -> setCurrentuser(userDataEntity));*/
+
         for (UserDataEntity us : users) {
             if (us.getUserEmail().equals(user.getUserEmail())) {
                 if (us.getUserSifre().equals(user.getUserSifre())) {
