@@ -12,6 +12,8 @@ public interface PostDao {
 
     List<PostEntity> listAuther(int id);
 
+    List<PostEntity> listAll();
+
     void insert(PostEntity post);
 
     void delete(int id);

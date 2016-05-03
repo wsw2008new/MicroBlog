@@ -10,6 +10,8 @@ import java.util.List;
 public interface CommentDao {
     List<CommentEntity> listPostComment(int id);
 
+    List<CommentEntity> listAllByUser(int id);
+
     void insert(CommentEntity comment);
 
     void delete(int id);

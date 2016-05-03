@@ -1,38 +1,58 @@
 package view.IMPL;
 
+import models.CommentEntity;
+import presentation.CommentDao;
 import presentation.IMPL.CommentDB;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import java.sql.ResultSet;
+import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
+import java.util.List;
 
 /**
  * Created by alikemal on 14.04.2016.
  */
 @ManagedBean(name = "comment")
-@RequestScoped
+@SessionScoped
 
 public class Comment extends BaseBusiness {
-    final private CommentDB commentDB = new CommentDB();
+    final private CommentDao commentDB = new CommentDB();
+    private CommentEntity comment = null;
+    private int postID;
 
-
-    public ResultSet list() {
-        return null;
+    public CommentEntity getComment() {
+        return comment;
     }
 
+    public int getPostID() {
+        return postID;
+    }
+
+    public void setPostID(ActionEvent event) {
+        setPostID((Integer) event.getComponent().getAttributes().get("postid"));
+    }
+
+    public void setPostID(int postID) {
+        this.postID = postID;
+    }
+
+    public List<CommentEntity> listByPost() {
+        return commentDB.listPostComment(getPostID());
+    }
 
     public String insert() {
-        return null;
+        commentDB.insert(getComment());
+        return "postDetails";
     }
 
-
-    public String delete() {
-        return null;
+    public String delete(ActionEvent event) {
+        commentDB.delete((Integer) event.getComponent().getAttributes().get("commentid"));
+        return "postDetails";
     }
-
 
     public String update() {
-        return null;
+        commentDB.update(getComment());
+        return "postDetails";
     }
 
 }

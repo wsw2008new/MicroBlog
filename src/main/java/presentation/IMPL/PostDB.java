@@ -25,6 +25,11 @@ public class PostDB extends Base implements PostDao {
     }
 
     @Override
+    public List<PostEntity> listAll() {
+        return null;
+    }
+
+    @Override
     public void insert(PostEntity post) {
         persist(post);
     }

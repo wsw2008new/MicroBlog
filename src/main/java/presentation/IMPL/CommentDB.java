@@ -22,6 +22,11 @@ public class CommentDB extends Base implements CommentDao {
     }
 
     @Override
+    public List<CommentEntity> listAllByUser(int id) {
+        return null;
+    }
+
+    @Override
     public void insert(CommentEntity comment) {
         persist(comment);
     }
