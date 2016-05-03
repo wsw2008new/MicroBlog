@@ -37,7 +37,7 @@ public class Comment extends BaseBusiness {
     }
 
     public List<CommentEntity> listByPost() {
-        return commentDB.listPostComment(getPostID());
+        return commentDB.listByPost(getPostID());
     }
 
     public String insert() {
