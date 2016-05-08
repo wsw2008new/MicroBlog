@@ -9,9 +9,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-/**
- * Created by alikemal on 23.04.2016.
- */
 
 public abstract class Base {
     private EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistenceUnit");
