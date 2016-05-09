@@ -59,17 +59,7 @@ public class PostEntity {
     }
 
     @Basic
-    @Column(name = "Post_Editable", nullable = true)
-    public Byte getPostEditable() {
-        return postEditable;
-    }
-
-    public void setPostEditable(Byte postEditable) {
-        this.postEditable = postEditable;
-    }
-
-    @Basic
-    @Column(name = "Post_Content", nullable = false, length = 200)
+    @Column(name = "Post_Content", nullable = true, length = 200)
     public String getPostContent() {
         return postContent;
     }

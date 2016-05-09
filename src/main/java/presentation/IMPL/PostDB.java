@@ -5,6 +5,7 @@ import presentation.PostDao;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -34,7 +35,7 @@ public class PostDB extends Base implements PostDao {
 
     @Override
     public void insert(PostEntity post) {
-        post.setPostCreateDate((Timestamp) Calendar.getInstance().getTime());
+        post.setPostCreateDate(new Timestamp(new Date().getTime()));
         persist(post);
     }
 
@@ -50,16 +51,12 @@ public class PostDB extends Base implements PostDao {
     public void update(PostEntity post) {
         getEtx().begin();
         getManager().createQuery(
-                "UPDATE PostEntity SET postTitle = ?1,postContent= ?2, postCreateDate= ?3 ,postEditable= ?4,postEmoji=?5,postPoint=?6,postAuther=?8" +
-                        "WHERE postId = ?7")
+                "UPDATE PostEntity SET postTitle = ?1,postContent= ?2,postPoint=?3" +
+                        "WHERE postId = ?4")
                 .setParameter(1, post.getPostTitle())
                 .setParameter(2, post.getPostContent())
-                .setParameter(3, post.getPostCreateDate())
-                .setParameter(4, post.getPostEditable())
-                .setParameter(5, post.getPostEmoji())
-                .setParameter(6, post.getPostPoint())
-                .setParameter(8, post.getPostAuther())
-                .setParameter(7, post.getPostId()).executeUpdate();
+                .setParameter(3, post.getPostPoint())
+                .setParameter(4, post.getPostId()).executeUpdate();
         getEtx().commit();
     }
 
