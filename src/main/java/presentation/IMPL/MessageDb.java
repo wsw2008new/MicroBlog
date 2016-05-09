@@ -3,8 +3,6 @@ package presentation.IMPL;
 import models.MessagessEntity;
 import presentation.Message;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;

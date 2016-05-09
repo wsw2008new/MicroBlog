@@ -7,12 +7,12 @@ import org.junit.Test;
  * Created by alikemal on 03.05.2016.
  */
 public class UserTest {
+    User user = new User();
+
     @Test
     public void isLogin() throws Exception {
         System.out.println(User.class.newInstance().IsLogin());
     }
-
-    User user = new User();
 
     @Test
     public void doLogin() throws Exception {

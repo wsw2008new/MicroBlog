@@ -100,13 +100,14 @@ public class User extends BaseBusiness {
         } else return "login";
     }
 
-    public Boolean IsLogin(){
-        if(currentuser.getUserId()!=0){
+    public Boolean IsLogin() {
+        if (currentuser.getUserId() != 0) {
             return true;
         }
         return false;
     }
-    public String doLogout(){
+
+    public String doLogout() {
         getCurrentuser().setUserId(0);
         return "index";
     }
