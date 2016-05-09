@@ -3,6 +3,8 @@ package presentation.IMPL;
 import models.PostEntity;
 import presentation.PostDao;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -32,6 +34,7 @@ public class PostDB extends Base implements PostDao {
 
     @Override
     public void insert(PostEntity post) {
+        post.setPostCreateDate((Timestamp) Calendar.getInstance().getTime());
         persist(post);
     }
 

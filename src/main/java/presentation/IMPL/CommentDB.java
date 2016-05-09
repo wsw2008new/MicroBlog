@@ -4,6 +4,8 @@ import models.CommentEntity;
 import presentation.CommentDao;
 
 import javax.persistence.Query;
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -33,6 +35,7 @@ public class CommentDB extends Base implements CommentDao {
 
     @Override
     public void insert(CommentEntity comment) {
+        comment.setCommentCreateDate((Timestamp) Calendar.getInstance().getTime());
         persist(comment);
     }
 
