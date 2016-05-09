@@ -16,7 +16,7 @@ public class UserDB extends Base implements UserDao {
     }
 
     @Override
-    public List list() {
+    public List<UserDataEntity> list() {
         return getManager().createQuery("Select a from UserDataEntity a ", UserDataEntity.class).getResultList();
     }
 

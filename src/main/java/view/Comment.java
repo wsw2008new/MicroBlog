@@ -1,8 +1,6 @@
-package view.IMPL;
+package view;
 
 import models.CommentEntity;
-import models.UserDataEntity;
-import presentation.CommentDao;
 import presentation.IMPL.CommentDB;
 
 import javax.faces.bean.ManagedBean;
@@ -16,9 +14,9 @@ import java.util.List;
 @ManagedBean(name = "comment")
 @SessionScoped
 
-public class Comment extends BaseBusiness {
-    final private CommentDao commentDB = new CommentDB();
-    private CommentEntity comment = null;
+public class Comment extends BaseView {
+    final private CommentDB commentDB = new CommentDB();
+    private CommentEntity comment = new CommentEntity();
     private int postID;
 
     public CommentEntity getComment() {
@@ -41,7 +39,9 @@ public class Comment extends BaseBusiness {
         return commentDB.listByPost(getPostID());
     }
 
-    public String insert() {
+    public String insert(int authotID) {
+        getComment().setCommentPostid(getPostID());
+        getComment().setCommentAuthor(authotID);
         commentDB.insert(getComment());
         return "postDetails";
     }
@@ -54,11 +54,6 @@ public class Comment extends BaseBusiness {
     public String update() {
         commentDB.update(getComment());
         return "postDetails";
-    }
-
-    public String findAutherByID(int id){
-        UserDataEntity temp= commentDB.findAuthorByID(id).get(0);
-        return temp.getUserFirstName()+" "+temp.getUserLastName();
     }
 
 }

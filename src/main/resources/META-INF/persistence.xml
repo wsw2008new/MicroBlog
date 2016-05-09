@@ -9,9 +9,9 @@
         <class>models.PostEntity</class>
         <class>models.UserDataEntity</class>
         <properties>
-            <property name="eclipselink.jdbc.url" value="jdbc:mysql://alikemal.org:3306/ali_asp"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/ali_asp"/>
             <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="eclipselink.jdbc.user" value="ali_asp"/>
+            <property name="eclipselink.jdbc.user" value="root"/>
             <property name="eclipselink.jdbc.password" value="123456"/>
         </properties>
     </persistence-unit>

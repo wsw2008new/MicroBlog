@@ -13,7 +13,6 @@ public class PostEntity {
     private String postTitle;
     private Timestamp postCreateDate;
     private Integer postPoint;
-    private Byte postEditable;
     private String postContent;
     private Integer postEmoji;
     private int postAuther;
@@ -101,7 +100,6 @@ public class PostEntity {
         if (postCreateDate != null ? !postCreateDate.equals(that.postCreateDate) : that.postCreateDate != null)
             return false;
         if (postPoint != null ? !postPoint.equals(that.postPoint) : that.postPoint != null) return false;
-        if (postEditable != null ? !postEditable.equals(that.postEditable) : that.postEditable != null) return false;
         if (postContent != null ? !postContent.equals(that.postContent) : that.postContent != null) return false;
         if (postEmoji != null ? !postEmoji.equals(that.postEmoji) : that.postEmoji != null) return false;
 
@@ -114,7 +112,6 @@ public class PostEntity {
         result = 31 * result + (postTitle != null ? postTitle.hashCode() : 0);
         result = 31 * result + (postCreateDate != null ? postCreateDate.hashCode() : 0);
         result = 31 * result + (postPoint != null ? postPoint.hashCode() : 0);
-        result = 31 * result + (postEditable != null ? postEditable.hashCode() : 0);
         result = 31 * result + (postContent != null ? postContent.hashCode() : 0);
         result = 31 * result + (postEmoji != null ? postEmoji.hashCode() : 0);
         result = 31 * result + postAuther;

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+<ui:composition>
+    <header>
+        <div class="container">
+            <nav jsf:id="nav" class="navbar" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"/>
+                        <span class="icon-bar"/>
+                        <span class="icon-bar"/>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav left-links">
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"/> Anasayfa</a></li>
+                        <li><a href="#"><i class="fa fa-comment-o" aria-hidden="true"/> Mesajlar</a></li>
+                    </ul>
+                    <form jsf:id="form1" class="navbar-form navbar-left" role="search" action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Arama"/>
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn">
+                                    <i class="fa fa-search" aria-hidden="true"/></button>
+                            </span>
+                        </div>
+                    </form>
+                    <c:choose>
+                        <c:when test="#{user.IsLogin() ==true}">
+                            <ul class="nav navbar-nav navbar-right right-links">
+                                <li><a href="#" data-toggle="modal" data-target="#tweet-modal">
+                                    <i class="fa fa-paper-plane-o"
+                                       aria-hidden="true"/>
+                                    Yeni İçerik</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle"
+                                       data-toggle="dropdown">#{user.findUserByID(user.currentuser.userId)}
+                                        <b class="caret"/></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="fa fa-fw fa-user" aria-hidden="true"/> Profil</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-fw fa-cog" aria-hidden="true"/> Ayarlar</a>
+                                        </li>
+                                        <li><a href="index.xhtml" jsf:aciton="#{user.doLogout()}">
+                                            <i class="fa fa-fw fa-power-off" aria-hidden="true"/> Çıkış Yap</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </c:when>
+                        <c:otherwise>
+                            <ul class="nav navbar-nav navbar-right right-links">
+                                <li><a href="#" data-toggle="modal" data-target="#signin-modal">
+                                    <i class="fa fa-paper-plane-o" aria-hidden="true"/>
+                                    Üye ol</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#login-modal">
+                                    <i class="fa fa-paper-plane-o" aria-hidden="true"/>
+                                    Giriş Yap</a></li>
+                            </ul>
+                        </c:otherwise>
+                    </c:choose>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+</ui:composition>
+</body>
+</html>

@@ -106,21 +106,10 @@ header nav.navbar .navbar-collapse .navbar-form .input-group input {
     border-radius: 15px;
     padding-right: 35px;
     border: 0;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s linear;
-    -ms-transition: all 0.3s linear;
-    -o-transition: all 0.3s linear;
-    transition: all 0.3s linear;
 }
 
 header nav.navbar .navbar-collapse .navbar-form .input-group input:focus {
     z-index: initial;
-    width: 120%;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s linear;
-    -ms-transition: all 0.3s linear;
-    -o-transition: all 0.3s linear;
-    transition: all 0.3s linear;
 }
 
 header nav.navbar .navbar-collapse .navbar-form .input-group .input-group-btn button {
@@ -291,7 +280,7 @@ section.main-area .content .panel ul.comments li {
 
 section.main-area .content .panel ul.comments li:before {
     content: '\f0c8';
-    font-family: 'FontAwesome';
+    font-family: 'FontAwesome', sans-serif;
     position: absolute;
     font-size: 6px;
     top: 5px;

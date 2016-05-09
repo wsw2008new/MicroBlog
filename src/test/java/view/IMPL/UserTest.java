@@ -2,6 +2,7 @@ package view.IMPL;
 
 import models.UserDataEntity;
 import org.junit.Test;
+import view.User;
 
 /**
  * Created by alikemal on 03.05.2016.

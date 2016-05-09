@@ -1,8 +1,7 @@
-package view.IMPL;
+package view;
 
 import models.UserDataEntity;
 import presentation.IMPL.UserDB;
-import presentation.UserDao;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -15,8 +14,8 @@ import java.util.List;
 @ManagedBean(name = "user")
 @SessionScoped
 
-public class User extends BaseBusiness {
-    final private UserDao userdb = new UserDB();
+public class User extends BaseView {
+    final private UserDB userdb = new UserDB();
     private UserDataEntity currentuser = new UserDataEntity();
     private UserDataEntity usertemp = new UserDataEntity();
     private String errorMesg;
@@ -111,5 +110,4 @@ public class User extends BaseBusiness {
         getCurrentuser().setUserId(0);
         return "index";
     }
-
 }

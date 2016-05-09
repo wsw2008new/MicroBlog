@@ -1,7 +1,6 @@
 package presentation;
 
 import models.CommentEntity;
-import models.UserDataEntity;
 
 import java.util.List;
 
@@ -18,7 +17,5 @@ public interface CommentDao {
     void delete(int id);
 
     void update(CommentEntity comment);
-
-    List<UserDataEntity> findAuthorByID(int id);
 
 }

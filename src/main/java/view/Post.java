@@ -1,8 +1,7 @@
-package view.IMPL;
+package view;
 
 import models.PostEntity;
 import presentation.IMPL.PostDB;
-import presentation.PostDao;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -17,16 +16,25 @@ import java.util.List;
 @SessionScoped
 
 
-public class Post extends BaseBusiness {
-    final private PostDao postDB = new PostDB();
+public class Post extends BaseView {
+    final private PostDB postDB = new PostDB();
     private PostEntity post = new PostEntity();
+    private PostEntity postDetail = new PostEntity();
     private User user = null;
-
     private int userid;
 
     public Post() {
         user = (User) FacesContext.getCurrentInstance().
                 getExternalContext().getSessionMap().get("user");
+    }
+
+    public PostEntity getPostDetail() {
+        return postDetail;
+    }
+
+    public String setPostDetailByID(int id) {
+        this.postDetail = postDB.findPost(id);
+        return "postDetails";
     }
 
     public int getUserid() {

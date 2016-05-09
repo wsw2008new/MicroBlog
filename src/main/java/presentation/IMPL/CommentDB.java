@@ -1,17 +1,17 @@
 package presentation.IMPL;
 
 import models.CommentEntity;
-import models.UserDataEntity;
 import presentation.CommentDao;
 
 import javax.persistence.Query;
 import java.sql.Timestamp;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
  * Created by alikemal on 29.04.2016.
  */
+
 public class CommentDB extends Base implements CommentDao {
     public CommentDB() {
         super.getManager();
@@ -36,7 +36,7 @@ public class CommentDB extends Base implements CommentDao {
 
     @Override
     public void insert(CommentEntity comment) {
-        comment.setCommentCreateDate((Timestamp) Calendar.getInstance().getTime());
+        comment.setCommentCreateDate(new Timestamp(new Date().getTime()));
         persist(comment);
     }
 
@@ -64,16 +64,6 @@ public class CommentDB extends Base implements CommentDao {
                 .setParameter(8, comment.getCommentPostid()).executeUpdate();
         getEtx().commit();
     }
-    @Override
-    public List<UserDataEntity> findAuthorByID(int id){
-        return getManager().createQuery(
-                "select u " +
-                        "from CommentEntity as c " +
-                        "INNER JOIN UserDataEntity as u on " +
-                        "c.commentAuthor=u.userId " +
-                        "where c.commentId= ?1", UserDataEntity.class)
-                .setParameter(1,id)
-                .getResultList();
-    }
+
 
 }

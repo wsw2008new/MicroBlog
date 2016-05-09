@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<ui:composition>
+    <div class="modal fade" id="comment-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true"></span></button>
+                    <h3 class="post-title">Yorum Yap</h3>
+                </div>
+                <div class="modal-body">
+                    <form action="" jsf:id="commentinput">
+                        <div class="form-group">
+                            <textarea jsf:value="#{comment.comment.commentContent}" class="form-control" name=""
+                                      cols="30" rows="5" placeholder="Yanıtla"/>
+                            <button type="submit" jsf:action="#{comment.insert(user.currentuser.userId)}"
+                                    class="btn pull-right">
+                                <i class="fa fa-paper-plane-o" aria-hidden="true"/>
+                                Gönder
+                            </button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="tweet-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true"></span></button>
+                    <h3 class="post-title">Yeni İçerik Gir</h3>
+                </div>
+                <form jsf:id="formiçerik" action="">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input jsf:id="posttitle" jsf:value="#{post.post.postTitle}" type="text"
+                                   class="form-control"
+                                   placeholder="Konu Başlığı"/>
+                        </div>
+                        <div class="form-group">
+                            <input jsf:id="postcontent" jsf:value="#{post.post.postContent}" class="form-control"
+                                   placeholder="Yanıtla"/>
+                            <button jsf:action="#{post.insert()}" type="submit" class="btn pull-right">
+                                <i class="fa fa-paper-plane-o" aria-hidden="true"/>
+                                Paylaş
+                            </button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true"></span></button>
+                    <h3 class="post-title">Kayıt Ol</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-xs-3">
+                                <h4>Nickname</h4>
+                            </div>
+                            <div class="col-xs-9">
+                                <label>
+                                    <input type="text" class="form-control" value="Denizmaradona"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-3">
+                                <h4>İsim</h4>
+                            </div>
+                            <div class="col-xs-9">
+                                <label>
+                                    <input type="text" class="form-control" value="Deniz"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-3">
+                                <h4>Soyisim</h4>
+                            </div>
+                            <div class="col-xs-9">
+                                <label>
+                                    <input type="text" class="form-control" value="Güzel"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-3">
+                                <h4>Doğum Tarihiniz</h4>
+                            </div>
+                            <div class="col-xs-9">
+                                <input type="text" class="form-control datepicker" data-provide="datepicker"
+                                       placeholder="Gün/Ay/Yıl"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <button type="submit" class="btn">
+                                    <i class="fa fa-floppy-o" aria-hidden="true"/> Kaydet
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true"></span></button>
+                    <h3 class="post-title">Giriş Yap</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <form jsf:id="form2" action="">
+                                <div class="form-group">
+                                    <input jsf:id="usermail" jsf:value="#{user.currentuser.userEmail}" type="text"
+                                           class="form-control" placeholder="Kullanıcı Adı"/>
+                                </div>
+                                <div class="form-group">
+                                    <input jsf:id="userpasswd" jsf:value="#{user.currentuser.userSifre}" type="password"
+                                           class="form-control" placeholder="Şifreniz"/>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" jsf:action="#{user.doLogin()}" class="btn">Giriş Yap</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ui:composition>
+</body>
+</html>
