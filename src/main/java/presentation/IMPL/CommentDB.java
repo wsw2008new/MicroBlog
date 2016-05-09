@@ -1,6 +1,7 @@
 package presentation.IMPL;
 
 import models.CommentEntity;
+import models.UserDataEntity;
 import presentation.CommentDao;
 
 import javax.persistence.Query;
@@ -63,4 +64,16 @@ public class CommentDB extends Base implements CommentDao {
                 .setParameter(8, comment.getCommentPostid()).executeUpdate();
         getEtx().commit();
     }
+    @Override
+    public List<UserDataEntity> findAuthorByID(int id){
+        return getManager().createQuery(
+                "select u " +
+                        "from CommentEntity as c " +
+                        "INNER JOIN UserDataEntity as u on " +
+                        "c.commentAuthor=u.userId " +
+                        "where c.commentId= ?1", UserDataEntity.class)
+                .setParameter(1,id)
+                .getResultList();
+    }
+
 }

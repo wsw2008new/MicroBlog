@@ -1,6 +1,7 @@
 package view.IMPL;
 
 import models.CommentEntity;
+import models.UserDataEntity;
 import presentation.CommentDao;
 import presentation.IMPL.CommentDB;
 
@@ -53,6 +54,11 @@ public class Comment extends BaseBusiness {
     public String update() {
         commentDB.update(getComment());
         return "postDetails";
+    }
+
+    public String findAutherByID(int id){
+        UserDataEntity temp= commentDB.findAuthorByID(id).get(0);
+        return temp.getUserFirstName()+" "+temp.getUserLastName();
     }
 
 }
