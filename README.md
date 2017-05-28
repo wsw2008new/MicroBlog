@@ -5,7 +5,6 @@ Extreme Todos
 ----------------------------------------
 >- SpringCore and Spring MVC  integration
 >- Spring Boot (optionally)
-
 >- Spring Cloud Cluster İntegration
 >- Log4J for logging
 >- JPA up to Hibernate
