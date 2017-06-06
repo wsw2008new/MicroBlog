@@ -72,6 +72,4 @@ hs_err_pid*
 .idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml
 .idea/workspace.xml
 spring-boot-sample-data-mongodb.iml
-src/main/java/
-src/main/resources/
-src/test/
+
