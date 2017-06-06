@@ -16,11 +16,11 @@
 
 package microblog;
 
+import microblog.repo.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import microblog.repo.CustomerRepository;
 
 
 @SpringBootApplication
@@ -36,11 +36,11 @@ public class SampleMongoApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-//    this.repository.deleteAll();
-//
-//    // save a couple of customers
-//    this.repository.save(new Customer("Alice", "Smith"));
-//    this.repository.save(new Customer("Bob", "Smith"));
+    //    this.repository.deleteAll();
+    //
+    //    // save a couple of customers
+    //    this.repository.save(new Customer("Alice", "Smith"));
+    //    this.repository.save(new Customer("Bob", "Smith"));
 
     // fetch all customers
     /*System.out.println("Customers found with findAll():");

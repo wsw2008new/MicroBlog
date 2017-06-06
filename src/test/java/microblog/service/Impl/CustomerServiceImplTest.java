@@ -1,12 +1,12 @@
 package microblog.service.Impl;
 
+import microblog.model.Customer;
+import microblog.repo.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import microblog.model.Customer;
-import microblog.repo.CustomerRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -1,9 +1,9 @@
 package microblog.service.Impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import microblog.model.Customer;
 import microblog.repo.CustomerRepository;
 import microblog.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
