@@ -1,4 +1,4 @@
-MicroBlog with Java EE
+MicroBlog with Spring
 ===================
 
 Extreme Todos
