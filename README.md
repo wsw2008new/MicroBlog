@@ -1,14 +1,16 @@
+
 MicroBlog with Spring
 ===================
 
-Extreme Todos
+Project Scope and Modules
 ----------------------------------------
 >- SpringCore and Spring MVC  integration
 >- Spring Boot
 >- Log4J for logging
->- Pulic API Support for mobil or other platform
+>- Public API Support for mobil or other platforms
 >- MongoDB/Cassandra stored (optionally)
->- Neo4j/FlockDB with mongoDB for taxonomies or follows
->- AngularJS-Bootsrap 4 integration
->- Apache Mahout/SparkML for #TT or Headline 
->- Research: consider MessageQuery for java EE
+>- Neo4j/FlockDB with MongoDB for taxonomies or follows
+>- AngularJS - Bootstrap 4 integration
+>- Apache Mahout/SparkML for #TT or Headline
+
+**Feature:** Consider MessageQuery for Java EE

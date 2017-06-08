@@ -1,4 +1,4 @@
-package microblog.model;
+package com.microblog.model;
 
 import org.springframework.data.annotation.Id;
 
