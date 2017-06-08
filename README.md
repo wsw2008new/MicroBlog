@@ -4,7 +4,7 @@ MicroBlog with Spring
 Extreme Todos
 ----------------------------------------
 >- SpringCore and Spring MVC  integration
->- Spring Boot (optionally)
+>- Spring Boot
 >- Log4J for logging
 >- Pulic API Support for mobil or other platform
 >- MongoDB/Cassandra stored (optionally)
