@@ -8,11 +8,13 @@ import java.util.List;
 @Repository
 public interface UserRepository extends GenericRepository<User, String> {
 
+  User findById(String id);
+
   List<User> findByFirstName(String firstName);
 
   List<User> findByLastName(String lastName);
 
-  User findFirstByUserName(String username);
+  User findByUserName(String username);
 
   User deleteByUserName(String username);
 }

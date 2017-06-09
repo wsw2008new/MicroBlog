@@ -1,7 +1,7 @@
 package com.microblog.utility;
 
 import com.microblog.model.User;
-import com.microblog.service.Impl.UserServiceImpl;
+import com.microblog.repo.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 * */
 @Component
 public class DbSeeder implements CommandLineRunner {
-  private UserServiceImpl userService;
+  private UserRepository userRepository;
 
-  public DbSeeder(UserServiceImpl userService) {
-    this.userService = userService;
+  public DbSeeder(UserRepository userRepository) {
+    this.userRepository = userRepository;
   }
 
   @Override
@@ -21,7 +21,8 @@ public class DbSeeder implements CommandLineRunner {
     User user = new User("deniz", "güzel", "denizmaradona");
     User user1 = new User("ali", "öcalan", "alikemal");
 
-    userService.saveOrUpdate(user);
-    userService.saveOrUpdate(user1);
+    userRepository.deleteAll();
+    userRepository.insert(user);
+    userRepository.insert(user1);
   }
 }

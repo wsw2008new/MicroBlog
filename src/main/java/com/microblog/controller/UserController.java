@@ -1,32 +1,47 @@
 package com.microblog.controller;
 
 import com.microblog.model.User;
-import com.microblog.service.Impl.UserServiceImpl;
+import com.microblog.repo.UserRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/users")
 public class UserController {
-  private UserServiceImpl userService;
+  private UserRepository userRepository;
 
-  public UserController(UserServiceImpl userService) {
-    this.userService = userService;
+  public UserController(UserRepository userRepository) {
+    this.userRepository = userRepository;
   }
 
-  @RequestMapping(value = "/users", method = RequestMethod.GET)
+  @RequestMapping(value = "/all", method = RequestMethod.GET)
   @ResponseBody
   public List<User> getUsers() {
-    return userService.findAll();
+    return userRepository.findAll();
   }
 
-  @RequestMapping(value = "/users/{userName}", method = RequestMethod.GET)
+  @RequestMapping(value = "/{firstName}", method = RequestMethod.GET)
   @ResponseBody
-  public List<User> getUser(@PathVariable("userName") String name) {
-    return userService.findByFirstName(name);
+  public List<User> getUser(@PathVariable("firstName") String name) {
+    return userRepository.findByFirstName(name);
+  }
+
+  @PutMapping
+  public String insertUser(@RequestBody User user) {
+    userRepository.insert(user);
+    return "redirect:/";
+  }
+
+  @PostMapping
+  public String updateUser(@RequestBody User user) {
+    userRepository.save(user);
+    return "redirect:/";
+  }
+
+  @DeleteMapping("/{id}")
+  public void deleteUser(@PathVariable("id") String id) {
+    userRepository.delete(userRepository.findById(id));
   }
 }
