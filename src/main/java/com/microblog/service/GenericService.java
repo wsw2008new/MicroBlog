@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface GenericService<T, ID extends Serializable> {
+  void saveOrUpdate(T model);
 
-  void add(T t);
+  void delete(T model);
 
-  void delete(T t);
+  T find(String id);
+
+  List<T> findByFirstName(String name);
 
   List<T> findAll();
 }

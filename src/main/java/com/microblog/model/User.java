@@ -1,11 +1,12 @@
 package com.microblog.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "Users")
 public class User {
 
   private String firstName, lastName, userName;
-
 
   @Id
   private String id;
@@ -16,22 +17,8 @@ public class User {
     this.userName = userName;
   }
 
-  @Override
-  public String toString() {
-    return "User{" +
-      "firstName='" + firstName + '\'' +
-      ", lastName='" + lastName + '\'' +
-      ", userName='" + userName + '\'' +
-      ", id='" + id + '\'' +
-      '}';
-  }
-
   public String getId() {
     return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public String getFirstName() {
