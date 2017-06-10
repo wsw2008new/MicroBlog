@@ -12,10 +12,6 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>1.5.3.RELEASE</version>
   </parent>
-
-  <properties>
-    <main.basedir>${basedir}/../..</main.basedir>
-  </properties>
   <dependencies>
     <!-- Compile -->
     <dependency>
@@ -51,39 +47,27 @@
     <!-- Resources -->
     <dependency>
       <groupId>org.webjars</groupId>
+      <artifactId>angularjs</artifactId>
+      <version>1.6.4</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.webjars</groupId>
       <artifactId>bootstrap</artifactId>
       <version>4.0.0-alpha.6-1</version>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.webjars.bower</groupId>
       <artifactId>jquery</artifactId>
       <version>3.2.1</version>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.webjars.bower</groupId>
       <artifactId>tether</artifactId>
       <version>1.4.0</version>
+      <scope>runtime</scope>
     </dependency>
   </dependencies>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
-
-  <repositories>
-    <repository>
-      <id>spring-releases</id>
-      <url>https://repo.spring.io/libs-release</url>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>spring-releases</id>
-      <url>https://repo.spring.io/libs-release</url>
-    </pluginRepository>
-  </pluginRepositories>
 </project>
