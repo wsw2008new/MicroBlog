@@ -1,47 +1,46 @@
 package com.microblog.controller;
 
-import com.microblog.model.User;
-import com.microblog.repo.UserRepository;
-import org.springframework.stereotype.Controller;
+import com.microblog.domain.User;
+import com.microblog.service.UserServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("/users")
+@RestController
+@RequestMapping("/api/users")
 public class UserController {
-  private UserRepository userRepository;
+	private UserServiceImpl userService;
 
-  public UserController(UserRepository userRepository) {
-    this.userRepository = userRepository;
-  }
+	public UserController(UserServiceImpl userService) {
+		this.userService = userService;
+	}
 
-  @RequestMapping(value = "/all", method = RequestMethod.GET)
-  @ResponseBody
-  public List<User> getUsers() {
-    return userRepository.findAll();
-  }
+	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@ResponseBody
+	public List<User> getUsers() {
+		return userService.findAll();
+	}
 
-  @RequestMapping(value = "/{firstName}", method = RequestMethod.GET)
-  @ResponseBody
-  public List<User> getUser(@PathVariable("firstName") String name) {
-    return userRepository.findByFirstName(name);
-  }
+	@RequestMapping(value = "/{firstName}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<User> getUser(@PathVariable("firstName") String name) {
+		return userService.findByFirstName(name);
+	}
 
-  @PutMapping
-  public String insertUser(@RequestBody User user) {
-    userRepository.insert(user);
-    return "redirect:/";
-  }
+	@PutMapping(value = "/insert")
+	public String insertUser(@RequestBody User user) {
+		userService.insert(user);
+		return "redirect:/";
+	}
 
-  @PostMapping
-  public String updateUser(@RequestBody User user) {
-    userRepository.save(user);
-    return "redirect:/";
-  }
+	@PostMapping(value = "/save")
+	public String updateUser(@RequestBody User user) {
+		userService.save(user);
+		return "redirect:/";
+	}
 
-  @DeleteMapping("/{id}")
-  public void deleteUser(@PathVariable("id") String id) {
-    userRepository.delete(userRepository.findById(id));
-  }
+	@DeleteMapping("/delete/{id}")
+	public void deleteUser(@PathVariable("id") String id) {
+		userService.delete(userService.findById(id));
+	}
 }
