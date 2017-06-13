@@ -1,21 +1,17 @@
-import {Http, Response} from "@angular/http";
-import "rxjs/Rx";
-import {User} from "./users.model";
-import {EventEmitter, Injectable} from "@angular/core";
+import { Http } from "@angular/http";
+import { Injectable } from "@angular/core";
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class UserService {
 
-  onUserAdded = new EventEmitter<User>();
+	private http: Http;
 
-  constructor(private http: Http) {}
+	constructor(http: Http) {
+		this.http = http;
+	}
 
-  getUsers(){
-    return this.http.get('/api/users/all')
-      .map(
-        (response: Response) => {
-          return response.json();
-        }
-      );
-  }
+	getUsers() {
+		return this.http.get('/api/users/all').map(response => response.json());
+	}
 }
