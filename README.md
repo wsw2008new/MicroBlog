@@ -5,7 +5,7 @@ MicroBlog with Spring
 Project Scope and Modules
 ----------------------------------------
 >- SpringCore and Spring MVC  integration
->- Spring Boot (optionally)
+>- Spring Boot
 >- Log4J for logging
 >- Public API Support for mobil or other platforms
 >- MongoDB/Cassandra stored (optionally)

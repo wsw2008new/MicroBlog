@@ -27,13 +27,13 @@ public class UserController {
 		return userService.findByFirstName(name);
 	}
 
-	@PutMapping(value = "/insert")
+	@PostMapping(value = "/insert")
 	public String insertUser(@RequestBody User user) {
 		userService.insert(user);
 		return "redirect:/";
 	}
 
-	@PostMapping(value = "/save")
+	@PutMapping(value = "/save")
 	public String updateUser(@RequestBody User user) {
 		userService.save(user);
 		return "redirect:/";
