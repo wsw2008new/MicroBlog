@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './users.model';
 import { UserService } from './users.service';
-import { environment } from 'environments/environment.prod';
 
 @Component({
 	selector: 'app-users',
@@ -26,7 +25,9 @@ export class UsersComponent implements OnInit {
 
 	getUsers() {
 		this.userService.getUsers().subscribe(
-			users => {this.users = users},
+			users => {
+				this.users = users
+			},
 			err => console.error(err),
 			() => console.info('%cUsers have been listed', 'color: green')
 		);
