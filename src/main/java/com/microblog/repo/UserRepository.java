@@ -1,18 +1,20 @@
 package com.microblog.repo;
 
-import com.microblog.model.User;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import com.microblog.domain.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface UserRepository extends MongoRepository<User, String> {
-  List<User> findByFirstName(String firstName);
+public interface UserRepository extends GenericRepository<User, String> {
 
-  List<User> findByLastName(String lastName);
+	User findById(String id);
 
-  User findFirstByUserName(String username);
+	List<User> findByFirstName(String firstName);
 
-  User deleteByUserName(String username);
+	List<User> findByLastName(String lastName);
+
+	User findByUserName(String username);
+
+	User deleteByUserName(String username);
 }

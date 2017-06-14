@@ -1,0 +1,12 @@
+<button class="btn btn-primary mb-2" (click)="onServerCreate()">Add Server</button>
+
+<div class="form-group" [hidden]="showServerBox">
+	<label>Server name:
+		<small>{{ serverName }}</small>
+	</label>
+	<input type="text" class="form-control" [(ngModel)]="serverName">
+	<button class="btn btn-success" [disabled]="serverName === ''" (click)="addServer()">Add</button>
+</div>
+
+<app-server></app-server>
+<app-server></app-server>
