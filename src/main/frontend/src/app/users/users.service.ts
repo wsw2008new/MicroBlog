@@ -7,6 +7,8 @@ import 'rxjs/add/operator/map';
 export class UserService {
 
 	private http: Http;
+	private headers = new Headers({'Content-Type': 'application/json'});
+	private options = new RequestOptions({headers: this.headers});
 
 	constructor(http: Http) {
 		this.http = http;
@@ -18,11 +20,16 @@ export class UserService {
 	}
 
 	addUser(user: User) {
-		let headers = new Headers({'Content-Type': 'application/json'});
-		let options = new RequestOptions({headers: headers});
 		let body = JSON.stringify(user);
 
 		let url = '/api/users/insert';
-		return this.http.post(url, body, options).map(response => response.json());
+		return this.http.post(url, body, this.options);
+	}
+
+	deleteUser(user: User) {
+		let body = JSON.stringify(user);
+
+		let url = '/api/users/delete';
+		return this.http.delete(url, body);
 	}
 }

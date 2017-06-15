@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api")
 public class UserController {
 	private UserServiceImpl userService;
 
@@ -15,32 +15,30 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@RequestMapping(value = "users/all", method = RequestMethod.GET)
 	@ResponseBody
 	public List<User> getUsers() {
 		return userService.findAll();
 	}
 
-	@RequestMapping(value = "/{firstName}", method = RequestMethod.GET)
+	@RequestMapping(value = "users/{firstName}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<User> getUser(@PathVariable("firstName") String name) {
 		return userService.findByFirstName(name);
 	}
 
-	@PostMapping(value = "/insert")
-	public String insertUser(@RequestBody User user) {
+	@PostMapping(value = "users/insert")
+	public void insertUser(@RequestBody User user) {
 		userService.insert(user);
-		return "redirect:/";
 	}
 
-	@PutMapping(value = "/save")
-	public String updateUser(@RequestBody User user) {
+	@PutMapping(value = "users/save")
+	public void updateUser(@RequestBody User user) {
 		userService.save(user);
-		return "redirect:/";
 	}
 
-	@DeleteMapping("/delete/{id}")
-	public void deleteUser(@PathVariable("id") String id) {
-		userService.delete(userService.findById(id));
+	@DeleteMapping("users/delete")
+	public void deleteUser(@RequestBody User user) {
+		userService.delete(user);
 	}
 }
