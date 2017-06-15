@@ -1,6 +1,7 @@
 .idea/
 /mikroblog.iml
+/src/main/resources/static/
 /target/
 /src/main/frontend/node_modules/
-/src/main/resources/static/
 /src/main/frontend/dist/
+/src/main/frontend/node/
