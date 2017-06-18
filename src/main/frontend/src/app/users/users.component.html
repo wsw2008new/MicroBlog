@@ -8,6 +8,7 @@
 					<th>Kullanıcı Adı</th>
 					<th>İsim</th>
 					<th>Soyisim</th>
+					<th>Sil</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -16,6 +17,7 @@
 					<td>{{user.userName}}</td>
 					<td>{{user.firstName}}</td>
 					<td>{{user.lastName}}</td>
+					<td><button type="button" class="btn btn-danger" (click)="deleteUser(user)">Sil</button></td>
 				</tr>
 				<tr [hidden]="users.length">
 					<td colspan="4" class="text-center">Hiç Kullanıcı Yok</td>
@@ -28,21 +30,21 @@
 <div class="card">
 	<div class="card-header">Kullanıcı Ekle</div>
 	<div class="card-block">
-		<form #form="ngForm" (ngSubmit)="submitForm(form.value)">
+		<form #form="ngForm" (ngSubmit)="addUser(form.value)">
 			<div class="row">
 				<div class="col-4">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Kullanıcı Adı" [(ngModel)]="userModel.userName" name="userName">
+						<input type="text" class="form-control" placeholder="Kullanıcı Adı" (ngModel)="userModel.userName" name="userName">
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="İsim" [(ngModel)]="userModel.firstName" name="firstName">
+						<input type="text" class="form-control" placeholder="İsim" (ngModel)="userModel.firstName" name="firstName">
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Soyisim" [(ngModel)]="userModel.lastName" name="lastName">
+						<input type="text" class="form-control" placeholder="Soyisim" (ngModel)="userModel.lastName" name="lastName">
 					</div>
 				</div>
 			</div>

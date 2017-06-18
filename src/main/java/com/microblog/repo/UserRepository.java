@@ -1,6 +1,7 @@
 package com.microblog.repo;
 
 import com.microblog.domain.User;
+import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface UserRepository extends GenericRepository<User, String> {
 	User findByUserName(String username);
 
 	User deleteByUserName(String username);
+
+	List<User> findAllBy(TextCriteria textCriteria);
 }

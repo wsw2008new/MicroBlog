@@ -1,30 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Server } from 'app/servers/servers.model';
 
 @Component({
-	// selector: '[app-servers]' by attribute
-	// selector: '.app-servers', by class
 	selector: 'app-servers',
 	templateUrl: './servers.component.html',
 	styleUrls: ['./servers.component.scss']
 })
-export class ServersComponent {
-	showServerBox: boolean = true;
-	addServerTrue: boolean = true;
 
-	serverName: string = 'Server Name';
+export class ServersComponent implements OnInit {
+	servers: Server[] = [];
+	serverModel: Server;
 
-	constructor() {
-
+	ngOnInit() {
+		this.servers = [
+			this.serverModel = new Server(1, 'server1', 'offline'),
+			this.serverModel = new Server(2, 'server2', 'online')
+		];
 	}
 
-	onServerCreate() {
-		this.addServerTrue = true;
-		this.showServerBox = false;
-	}
-
-	addServer() {
-		this.addServerTrue = false;
-		this.showServerBox = true;
-		this.serverName = 'Server Name';
+	addServer(server: Server) {
+		this.servers.push(server)
 	}
 }
