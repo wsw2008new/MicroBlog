@@ -30,21 +30,21 @@
 <div class="card">
 	<div class="card-header">Kullanıcı Ekle</div>
 	<div class="card-block">
-		<form #form="ngForm" (ngSubmit)="addUser(form.value)">
+		<form #form="ngForm" (ngSubmit)="addUser(form)">
 			<div class="row">
 				<div class="col-4">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Kullanıcı Adı" (ngModel)="userModel.userName" name="userName">
+						<input type="text" class="form-control" placeholder="Kullanıcı Adı" name="userName" ngModel>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="İsim" (ngModel)="userModel.firstName" name="firstName">
+						<input type="text" class="form-control" placeholder="İsim" name="firstName" ngModel>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Soyisim" (ngModel)="userModel.lastName" name="lastName">
+						<input type="text" class="form-control" placeholder="Soyisim" name="lastName" ngModel>
 					</div>
 				</div>
 			</div>
