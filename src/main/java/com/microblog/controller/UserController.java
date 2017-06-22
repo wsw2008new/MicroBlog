@@ -2,6 +2,8 @@ package com.microblog.controller;
 
 import com.microblog.domain.User;
 import com.microblog.service.UserServiceImpl;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+	private static Logger logger = LogManager.getLogger();
 	private UserServiceImpl userService;
 
 	public UserController(UserServiceImpl userService) {
@@ -30,6 +33,7 @@ public class UserController {
 	@PostMapping(value = "users/insert")
 	public void insertUser(@RequestBody User user) {
 		userService.insert(user);
+		logger.info(user.toString() + " saved to database.");
 	}
 
 	@PutMapping(value = "users/save")
@@ -40,5 +44,6 @@ public class UserController {
 	@DeleteMapping("users/delete")
 	public void deleteUser(@RequestBody User user) {
 		userService.delete(user);
+		logger.info(user.toString() + " deleted from database.");
 	}
 }
