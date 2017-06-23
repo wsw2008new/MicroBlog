@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './users.model';
 import { UserService } from './users.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
 	selector: 'app-users',
-	templateUrl: './users.component.html',
-	styleUrls: ['./users.component.scss']
+	templateUrl: './users.component.html'
 })
 export class UsersComponent implements OnInit {
 
@@ -24,13 +22,6 @@ export class UsersComponent implements OnInit {
 			users => this.users = users,
 			err => console.error(err),
 			() => console.info('%cUsers have been listed', 'color: green')
-		);
-	}
-
-	addUser(form: NgForm) {
-		this.userService.addUser(form.value).subscribe(
-			users => this.getUsers(),
-			error => console.error(error)
 		);
 	}
 

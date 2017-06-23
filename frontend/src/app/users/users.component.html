@@ -1,0 +1,28 @@
+<div class="card">
+	<div class="card-header">Kullanıcılar</div>
+	<div class="card-block">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Kullanıcı Adı</th>
+					<th>İsim</th>
+					<th>Soyisim</th>
+					<th>Sil</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let user of users" [hidden]="!users.length">
+					<td>{{user.id}}</td>
+					<td>{{user.userName}}</td>
+					<td>{{user.firstName}}</td>
+					<td>{{user.lastName}}</td>
+					<td><button type="button" class="btn btn-danger" (click)="deleteUser(user)">Sil</button></td>
+				</tr>
+				<tr [hidden]="users.length">
+					<td colspan="4" class="text-center">Hiç Kullanıcı Yok</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
