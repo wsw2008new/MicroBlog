@@ -1,5 +1,27 @@
 <div class="card">
-	<div class="card-header">Kullanıcılar</div>
+	<div class="card-header">Kullanıcı Ekle</div>
+	<div class="card-block">
+		<form #form="ngForm" (ngSubmit)="addUser(form)">
+			<div class="row">
+				<div class="col-4">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Kullanıcı Adı" name="userName" ngModel>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="İsim" name="firstName" ngModel>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Soyisim" name="lastName" ngModel>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-success">Kaydet</button>
+		</form>
+	</div>
 	<div class="card-block">
 		<table class="table">
 			<thead>
@@ -12,15 +34,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr *ngFor="let user of users" [hidden]="!users.length">
+				<tr *ngFor="let user of users">
 					<td>{{user.id}}</td>
 					<td>{{user.userName}}</td>
 					<td>{{user.firstName}}</td>
 					<td>{{user.lastName}}</td>
-					<td><button type="button" class="btn btn-danger" (click)="deleteUser(user)">Sil</button></td>
-				</tr>
-				<tr [hidden]="users.length">
-					<td colspan="4" class="text-center">Hiç Kullanıcı Yok</td>
+					<td>
+						<button type="button" class="btn btn-danger" (click)="deleteUser(user)">Sil</button>
+					</td>
 				</tr>
 			</tbody>
 		</table>
