@@ -2,10 +2,8 @@
 /mikroblog.iml
 /src/main/resources/static/
 /target/
-/src/main/frontend/node_modules/
-/src/main/frontend/dist/
-/src/main/frontend/node/
-/src/main/frontend/package-lock.json
-.classpath
-.project
-.settings/
+frontend/node_modules/
+frontend/dist/
+frontend/node/
+frontend/package-lock.json
+/src/main/resources/logs/
