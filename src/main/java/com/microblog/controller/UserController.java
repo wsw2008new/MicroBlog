@@ -1,9 +1,10 @@
 package com.microblog.controller;
 
 import com.microblog.domain.User;
-import com.microblog.service.UserServiceImpl;
+import com.microblog.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,9 +13,11 @@ import java.util.List;
 @RequestMapping("/api")
 public class UserController {
 	private static Logger logger = LogManager.getLogger();
-	private UserServiceImpl userService;
 
-	public UserController(UserServiceImpl userService) {
+	@Qualifier(value = "userServiceImpl")
+	private UserService userService;
+
+	public UserController(UserService userService) {
 		this.userService = userService;
 	}
 
