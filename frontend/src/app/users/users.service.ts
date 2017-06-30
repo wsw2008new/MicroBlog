@@ -19,7 +19,7 @@ export class UserService {
 	addUser(user: User) {
 		const body = JSON.stringify(user);
 
-		const url = '/api/users/insert';
+		const url = '/api/users/save';
 		return this.http.post(url, body, this.options);
 	}
 

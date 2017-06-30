@@ -5,10 +5,9 @@ import org.springframework.data.mongodb.core.index.TextIndexed;
 import java.util.Map;
 
 public class HashTag extends BaseModel {
-	private @TextIndexed
-	String title;
+	@TextIndexed
+	private String title;
 	private String startedUserID;
-	//Lisr @params <userid-postid>
 	private Map<String, String> mentions;
 
 	public Map<String, String> getMentions() {

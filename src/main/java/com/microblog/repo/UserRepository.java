@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends GenericRepository<User, String> {
@@ -13,7 +14,7 @@ public interface UserRepository extends GenericRepository<User, String> {
 
 	List<User> findByLastName(String lastname);
 
-	User findByUserName(String username);
+	Optional<User> findByUserName(String username);
 
 	User deleteByUserName(String username);
 
