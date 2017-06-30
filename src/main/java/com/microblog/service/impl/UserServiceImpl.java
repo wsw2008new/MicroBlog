@@ -39,23 +39,18 @@ public class UserServiceImpl extends GenericServiceImpl<User, String> implements
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		final Optional<User> user = userRepository.findByUserName(username);
-		final AccountStatusUserDetailsChecker detailsChecker = new AccountStatusUserDetailsChecker();
-		user.ifPresent(detailsChecker::check);
-		return user.orElseThrow(() -> new UsernameNotFoundException("user not found."));
-	}
-
 	public User createUser(UserDTO userDTO) {
-		User user = toUserRole(userDTO);
-		return userRepository.insert(user);
-	}
-
-	private User toUserRole(UserDTO userDTO) {
 		User user = userDTO.toUser();
 		Role role = new Role();
 		role.setRoleName("ROLE_USER");
 		user.setRole(role);
 		return user;
+	}
+
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		final Optional<User> user = userRepository.findByUserName(username);
+		final AccountStatusUserDetailsChecker detailsChecker = new AccountStatusUserDetailsChecker();
+		user.ifPresent(detailsChecker::check);
+		return user.orElseThrow(() -> new UsernameNotFoundException("user not found."));
 	}
 }

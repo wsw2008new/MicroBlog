@@ -2,8 +2,9 @@ package com.microblog.controller;
 
 import com.microblog.domain.Post;
 import com.microblog.dto.PostDTO;
+import com.microblog.service.PostService;
 import com.microblog.service.impl.PostServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +15,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
-	private final PostServiceImpl postService;
 
-	@Autowired
+	@Qualifier("postServiceImpl")
+	private final PostService postService;
+
 	public PostController(PostServiceImpl postService) {
 		this.postService = postService;
 	}

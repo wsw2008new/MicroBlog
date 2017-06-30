@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
 @Document(collection = "posts")
-public class Post extends BaseModel {
+public class Post {
 
 	@Id
 	private String id;
@@ -34,11 +34,6 @@ public class Post extends BaseModel {
 	}
 
 	public Post() {
-	}
-
-	@Override
-	public String getId() {
-		return id;
 	}
 
 	public String getTitle() {
@@ -87,18 +82,5 @@ public class Post extends BaseModel {
 
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
-	}
-
-	@Override
-	public String toString() {
-		return "Post{" +
-			"id='" + id + '\'' +
-			", title='" + title + '\'' +
-			", subtitle='" + subtitle + '\'' +
-			", content='" + content + '\'' +
-			", date='" + date + '\'' +
-			", author='" + author + '\'' +
-			", commentList=" + commentList +
-			'}';
 	}
 }

@@ -3,10 +3,12 @@ package com.microblog.controller;
 import com.microblog.domain.User;
 import com.microblog.dto.UserDTO;
 import com.microblog.security.JwtTokenHandler;
+import com.microblog.service.UserService;
 import com.microblog.service.impl.UserServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +22,8 @@ import java.util.List;
 public class UserController {
 	private static Logger logger = LogManager.getLogger();
 
-	private final UserServiceImpl userService;
+	@Qualifier("userServiceImpl")
+	private final UserService userService;
 	private final JwtTokenHandler jwtTokenHandler;
 
 	@Autowired
@@ -42,9 +45,9 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/save")
-	public ResponseEntity insertUser(@Valid @RequestBody UserDTO user) {
-		userService.createUser(user);
-		logger.info(user.toString() + " saved to database.");
+	public ResponseEntity insertUser(@Valid @RequestBody UserDTO userDTO) {
+		userService.insert(userService.createUser(userDTO));
+		logger.info(userDTO.toString() + " saved to database.");
 		HttpHeaders headers = new HttpHeaders();
 		return new ResponseEntity(headers, HttpStatus.OK);
 	}

@@ -19,13 +19,16 @@ public final class UserDTO {
 	@Size(min = 8, max = 100)
 	private final String password;
 	private final String firstName;
+	private final String lastName;
 
 	public UserDTO(@JsonProperty("username") String userName,
 	               @JsonProperty("password") String password,
-	               @JsonProperty("firstName") String firstName) {
+	               @JsonProperty("firstName") String firstName,
+	               @JsonProperty("lastName") String lastName) {
 		this.userName = userName;
 		this.password = password;
 		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	public Optional<String> getUserName() {
@@ -46,6 +49,7 @@ public final class UserDTO {
 		user.setRole(new Role());
 		user.setPassword(new BCryptPasswordEncoder().encode(password));
 		user.setFirstName(firstName);
+		user.setLastName(lastName);
 		return user;
 	}
 

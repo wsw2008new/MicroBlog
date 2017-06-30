@@ -22,10 +22,6 @@ public class Comment {
 		this.date = date;
 	}
 
-	public String getId() {
-		return id;
-	}
-
 	public String getAuthor() {
 		return author;
 	}
@@ -56,16 +52,5 @@ public class Comment {
 
 	public void setPostId(String postId) {
 		this.postId = postId;
-	}
-
-	@Override
-	public String toString() {
-		return "Comment{" +
-			"id='" + id + '\'' +
-			", author='" + author + '\'' +
-			", review='" + review + '\'' +
-			", date='" + date + '\'' +
-			", postId='" + postId + '\'' +
-			'}';
 	}
 }

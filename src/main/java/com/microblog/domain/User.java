@@ -2,6 +2,7 @@ package com.microblog.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,7 +17,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Document(collection = "Users")
-public class User extends BaseModel implements UserDetails {
+public class User implements UserDetails {
+
+	@Id
+	private String id;
 
 	@NotNull
 	@Size(min = 2, max = 30)

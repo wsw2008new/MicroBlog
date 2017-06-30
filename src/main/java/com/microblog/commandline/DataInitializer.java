@@ -2,9 +2,6 @@ package com.microblog.commandline;
 
 import com.microblog.domain.Post;
 import com.microblog.dto.UserDTO;
-import com.microblog.service.impl.PostServiceImpl;
-import com.microblog.service.impl.UserServiceImpl;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,26 +9,13 @@ import java.util.Date;
 import java.util.List;
 
 @Component
-public class DataInitializer implements CommandLineRunner {
-	private UserServiceImpl userService;
-	private PostServiceImpl postService;
+public class DataInitializer {
 
-	public DataInitializer(UserServiceImpl userService, PostServiceImpl postService) {
-		this.userService = userService;
-		this.postService = postService;
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		generatePosts().stream().forEach(p -> postService.save(p));
-		userService.createUser(new UserDTO("testuser@gmail.com", "password123", "vhoang"));
-	}
-
-	private List<Post> generatePosts() {
-		List posts = new ArrayList();
+	List<Post> generatePosts() {
+		List<Post> posts = new ArrayList<>();
 
 		Post post1 = new Post();
-		post1.setAuthor("vhoang55");
+		post1.setAuthor("deniz");
 		post1.setContent("A blog content to combine some cool tech stack together using " +
 			"Spring boot/Spring Security, Angular-2 (still in beta CR-3), and Json WebToken. As" +
 			"of right now, Angular 2 is still in CR-3, their teams are moving fast and ");
@@ -41,7 +25,7 @@ public class DataInitializer implements CommandLineRunner {
 
 
 		Post post2 = new Post();
-		post2.setAuthor("vhoang55");
+		post2.setAuthor("deniz");
 		post2.setContent("Angular 2 is a really cool web framework. It's built on top of Typescript" +
 			" and RxJs. The web is moving fast, and seems like the industry is moving toward the" +
 			" reactive programming model. It's a new shift in programming paradigm. <br> <br>" +
@@ -58,6 +42,20 @@ public class DataInitializer implements CommandLineRunner {
 		posts.add(post2);
 
 		return posts;
+	}
 
+	List<UserDTO> generateUsers() {
+		List<UserDTO> users = new ArrayList<>();
+		UserDTO userDTO1 = new UserDTO("denizmaradona1", "password123", "deniz1", "güzel1");
+		UserDTO userDTO2 = new UserDTO("denizmaradona2", "password123", "deniz2", "güzel2");
+		UserDTO userDTO3 = new UserDTO("denizmaradona3", "password123", "deniz3", "güzel3");
+		UserDTO userDTO4 = new UserDTO("denizmaradona4", "password123", "deniz4", "güzel4");
+
+		users.add(userDTO1);
+		users.add(userDTO2);
+		users.add(userDTO3);
+		users.add(userDTO4);
+
+		return users;
 	}
 }

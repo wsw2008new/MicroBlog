@@ -21,10 +21,6 @@ public class Role {
 	@DBRef
 	private List<User> userRoles;
 
-	public String getId() {
-		return id;
-	}
-
 	public String getRoleName() {
 		return roleName;
 	}
@@ -39,12 +35,5 @@ public class Role {
 
 	public void setUserRoles(List<User> userRoles) {
 		this.userRoles = userRoles;
-	}
-
-	@Override
-	public String toString() {
-		return String.format("%s(id=%s, rolename='%s')",
-			this.getClass().getSimpleName(),
-			this.getId(), this.getRoleName());
 	}
 }
