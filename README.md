@@ -9,7 +9,7 @@ Project Scope and Modules
 >- Log4J for logging
 >- Public API Support for mobil or other platforms
 >- MongoDB/Cassandra stored (optionally)
->- Neo4j/FlockDB with MongoDB for taxonomies or follows
+>- orientDB/FlockDB with MongoDB for taxonomies or follows
 >- AngularJS - Bootstrap 4 integration
 >- Apache Mahout/SparkML for #TT or Headline
 
