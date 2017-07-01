@@ -1,8 +1,6 @@
 package com.microblog.service.impl;
 
-import com.microblog.domain.Role;
 import com.microblog.domain.User;
-import com.microblog.dto.UserDTO;
 import com.microblog.repo.UserRepository;
 import com.microblog.service.UserService;
 import org.springframework.data.mongodb.core.query.TextCriteria;
@@ -36,15 +34,6 @@ public class UserServiceImpl extends GenericServiceImpl<User, String> implements
 	@Override
 	public Optional<User> findByUserName(String username) {
 		return userRepository.findByUserName(username);
-	}
-
-	@Override
-	public User createUser(UserDTO userDTO) {
-		User user = userDTO.toUser();
-		Role role = new Role();
-		role.setRoleName("ROLE_USER");
-		user.setRole(role);
-		return user;
 	}
 
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

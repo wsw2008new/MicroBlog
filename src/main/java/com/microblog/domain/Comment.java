@@ -1,12 +1,9 @@
 package com.microblog.domain;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "comments")
-public class Comment {
-	@Id
-	private String id;
+public class Comment extends GenericModel {
 
 	private String author;
 

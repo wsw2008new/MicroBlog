@@ -1,7 +1,6 @@
 package com.microblog.controller;
 
 import com.microblog.domain.User;
-import com.microblog.dto.UserDTO;
 import com.microblog.security.JwtTokenHandler;
 import com.microblog.service.UserService;
 import com.microblog.service.impl.UserServiceImpl;
@@ -45,9 +44,9 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/save")
-	public ResponseEntity insertUser(@Valid @RequestBody UserDTO userDTO) {
-		userService.insert(userService.createUser(userDTO));
-		logger.info(userDTO.toString() + " saved to database.");
+	public ResponseEntity insertUser(@Valid @RequestBody User user) {
+		userService.insert(user);
+		logger.info(user.toString() + " saved to database.");
 		HttpHeaders headers = new HttpHeaders();
 		return new ResponseEntity(headers, HttpStatus.OK);
 	}

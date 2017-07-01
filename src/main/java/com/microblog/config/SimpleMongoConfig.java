@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @Configuration
 @EnableMongoRepositories(basePackages = "com.microblog.repo")
-public class MongoConfig {
+public class SimpleMongoConfig {
 	@Bean
 	public Mongo mongo() throws Exception {
 		return new MongoClient("localhost");

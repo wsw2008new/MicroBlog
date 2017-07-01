@@ -2,10 +2,9 @@ package com.microblog.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.TextIndexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,11 +15,8 @@ import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
 
-@Document(collection = "Users")
-public class User implements UserDetails {
-
-	@Id
-	private String id;
+@Document(collection = "users")
+public class User extends GenericModel implements UserDetails {
 
 	@NotNull
 	@Size(min = 2, max = 30)
@@ -40,17 +36,14 @@ public class User implements UserDetails {
 	@NotNull
 	private String password;
 
-	@DBRef
 	private Role role;
 
-	public User(String firstName, String lastName, String userName, String password) {
+	public User(String firstName, String lastName, String userName, String password, Role role) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
 		this.password = password;
-	}
-
-	public User() {
+		this.role = role;
 	}
 
 	public String getFirstName() {
@@ -73,14 +66,14 @@ public class User implements UserDetails {
 		return userName;
 	}
 
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	@Override
 	@JsonProperty("username")
 	public String getUsername() {
 		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 
 	@JsonIgnore
@@ -113,6 +106,9 @@ public class User implements UserDetails {
 		return authorities;
 	}
 
+	public UsernamePasswordAuthenticationToken toAuthenticationToken() {
+		return new UsernamePasswordAuthenticationToken(userName, password, getAuthorities());
+	}
 
 	@JsonIgnore
 	public boolean isAccountNonExpired() {

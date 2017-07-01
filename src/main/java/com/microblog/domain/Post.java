@@ -1,16 +1,12 @@
 package com.microblog.domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
 import java.util.List;
 
 @Document(collection = "posts")
-public class Post {
-
-	@Id
-	private String id;
+public class Post extends GenericModel {
 
 	private String title;
 
@@ -18,14 +14,13 @@ public class Post {
 
 	private String content;
 
-	private String date;
+	private Date date;
 
 	private String author;
 
-	@DBRef
 	private List<Comment> commentList;
 
-	public Post(String title, String subtitle, String content, String date, String author) {
+	public Post(String title, String subtitle, String content, Date date, String author) {
 		this.title = title;
 		this.subtitle = subtitle;
 		this.content = content;
@@ -60,11 +55,11 @@ public class Post {
 		this.content = content;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

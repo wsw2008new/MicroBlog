@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.core.index.TextIndexed;
 
 import java.util.Map;
 
-public class HashTag extends BaseModel {
+public class HashTag extends GenericModel {
 	@TextIndexed
 	private String title;
 	private String startedUserID;

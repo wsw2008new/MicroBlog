@@ -1,7 +1,7 @@
 package com.microblog.filters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.microblog.dto.UserDTO;
+import com.microblog.domain.User;
 import com.microblog.security.TokenAuthenticationService;
 import com.microblog.service.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,12 +28,12 @@ public class StatelessLoginFilter extends AbstractAuthenticationProcessingFilter
 
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
-		final UserDTO user = toUser(request);
+		final User user = toUser(request);
 		final UsernamePasswordAuthenticationToken loginToken = user.toAuthenticationToken();
 		return getAuthenticationManager().authenticate(loginToken);
 	}
 
-	private UserDTO toUser(HttpServletRequest request) throws IOException {
-		return new ObjectMapper().readValue(request.getInputStream(), UserDTO.class);
+	private User toUser(HttpServletRequest request) throws IOException {
+		return new ObjectMapper().readValue(request.getInputStream(), User.class);
 	}
 }

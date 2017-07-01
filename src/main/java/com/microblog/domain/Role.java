@@ -1,25 +1,21 @@
 package com.microblog.domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 @Document(collection = "roles")
-public class Role {
-
-	@Id
-	private String id;
+public class Role extends GenericModel {
 
 	@NotNull
-	@Size(max = 50)
 	private String roleName;
 
-	@DBRef
 	private List<User> userRoles;
+
+	public Role(String roleName) {
+		this.roleName = roleName;
+	}
 
 	public String getRoleName() {
 		return roleName;

@@ -1,7 +1,6 @@
 package com.microblog.service;
 
 import com.microblog.domain.User;
-import com.microblog.dto.UserDTO;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
@@ -23,7 +22,5 @@ public interface UserService extends UserDetailsService {
 	User findById(String id);
 
 	Optional<User> findByUserName(String username);
-
-	User createUser(UserDTO userDTO);
 
 }
