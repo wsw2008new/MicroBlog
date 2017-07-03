@@ -5,17 +5,16 @@ import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends GenericRepository<User, String> {
 
-	User findById(String id);
+	List<User> findByFirstName(String firstname);
 
-	List<User> findByFirstName(String firstName);
+	List<User> findByLastName(String lastname);
 
-	List<User> findByLastName(String lastName);
-
-	User findByUserName(String username);
+	Optional<User> findByUserName(String username);
 
 	User deleteByUserName(String username);
 

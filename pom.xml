@@ -23,7 +23,7 @@
 				https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
 				<version>1.4</version>
 				<configuration>
-					<workingDirectory>src/main/frontend</workingDirectory>
+					<workingDirectory>frontend</workingDirectory>
 				</configuration>
 				<executions>
 					<execution>
@@ -33,6 +33,7 @@
 						</goals>
 						<configuration>
 							<nodeVersion>v6.11.0</nodeVersion>
+							<npmVersion>5.0.4</npmVersion>
 						</configuration>
 					</execution>
 
@@ -56,6 +57,14 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -93,10 +102,19 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-rest</artifactId>
     </dependency>
+	  <dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-security</artifactId>
+	  </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
     </dependency>
+	  <dependency>
+		  <groupId>io.jsonwebtoken</groupId>
+		  <artifactId>jjwt</artifactId>
+		  <version>0.7.0</version>
+	  </dependency>
     <!-- Test -->
     <dependency>
       <groupId>org.springframework.boot</groupId>

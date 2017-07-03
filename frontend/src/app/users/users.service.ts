@@ -1,11 +1,10 @@
+import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions } from '@angular/http';
 import { User } from 'app/users/users.model';
 import 'rxjs/add/operator/map';
-import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UserService {
-
 	private headers = new Headers({'Content-Type': 'application/json'});
 	private options = new RequestOptions({headers: this.headers});
 
@@ -20,7 +19,7 @@ export class UserService {
 	addUser(user: User) {
 		const body = JSON.stringify(user);
 
-		const url = '/api/users/insert';
+		const url = '/api/users/save';
 		return this.http.post(url, body, this.options);
 	}
 
