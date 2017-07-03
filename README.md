@@ -1,5 +1,5 @@
 
-MicroBlog with Spring
+MicroBlog with Spring  [![CircleCI](https://circleci.com/gh/alikemalocalan/MicroBlog/tree/master.svg?style=svg)](https://circleci.com/gh/alikemalocalan/MicroBlog/tree/master)
 ===================
 
 Project Scope and Modules
