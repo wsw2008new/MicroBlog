@@ -1,0 +1,8 @@
+machine:
+  java:
+    version: oraclejdk8
+  staging:
+    branch: master
+    heroku:
+      appname: mikroblog-spring
+      
