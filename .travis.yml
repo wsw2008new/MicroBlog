@@ -1,6 +1,6 @@
 {
   "language": "java",
   "group": "stable",
-  "dist": "precise",
+  "dist": "xenial",
   "os": "linux"
 }
