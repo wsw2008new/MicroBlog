@@ -1,5 +1,5 @@
 
-MicroBlog with Spring
+MicroBlog with Spring  [![CircleCI](https://circleci.com/gh/alikemalocalan/MicroBlog/tree/master.svg?style=svg)](https://circleci.com/gh/alikemalocalan/MicroBlog/tree/master)
 ===================
 
 Project Scope and Modules
@@ -8,8 +8,7 @@ Project Scope and Modules
 >- Spring Boot
 >- Log4J for logging
 >- Public API Support for mobil or other platforms
->- MongoDB/Cassandra stored (optionally)
->- Neo4j/FlockDB with MongoDB for taxonomies or follows
+>- orientDB/FlockDB with MongoDB for taxonomies or follows
 >- AngularJS - Bootstrap 4 integration
 >- Apache Mahout/SparkML for #TT or Headline
 

@@ -1,8 +1,9 @@
 package com.microblog.service.impl;
 
+import com.microblog.Mongorepo.UserRepository;
 import com.microblog.domain.User;
-import com.microblog.repo.UserRepository;
 import com.microblog.service.UserService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +16,7 @@ import java.util.Optional;
 @Component(value = "userServiceImpl")
 public class UserServiceImpl extends GenericServiceImpl<User, String> implements UserService {
 
+	@Qualifier("userMongoRepo")
 	private UserRepository userRepository;
 
 	public UserServiceImpl(UserRepository userRepository) {

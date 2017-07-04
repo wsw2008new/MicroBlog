@@ -1,12 +1,14 @@
-package com.microblog.repo;
+package com.microblog.Mongorepo;
 
 import com.microblog.domain.User;
 import org.springframework.data.mongodb.core.query.TextCriteria;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Component(value = "userMongoRepo")
 @Repository
 public interface UserRepository extends GenericRepository<User, String> {
 

@@ -3,7 +3,6 @@ package com.microblog.controller;
 import com.microblog.domain.User;
 import com.microblog.security.JwtTokenHandler;
 import com.microblog.service.UserService;
-import com.microblog.service.impl.UserServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +20,11 @@ import java.util.List;
 public class UserController {
 	private static Logger logger = LogManager.getLogger();
 
-	@Qualifier("userServiceImpl")
 	private final UserService userService;
 	private final JwtTokenHandler jwtTokenHandler;
 
 	@Autowired
-	public UserController(UserServiceImpl userService, JwtTokenHandler jwtTokenHandler) {
+	public UserController(@Qualifier("userServiceImpl") UserService userService, JwtTokenHandler jwtTokenHandler) {
 		this.userService = userService;
 		this.jwtTokenHandler = jwtTokenHandler;
 	}

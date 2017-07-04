@@ -1,5 +1,6 @@
-package com.microblog.repo;
+package com.microblog.Mongorepo;
 
+import com.microblog.domain.Role;
 import com.microblog.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,10 +15,13 @@ import java.util.List;
 @SpringBootTest
 public class UserRepositoryTest {
 
-	@Autowired private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 
 	@Test
 	public void findAllBy() throws Exception {
+		userRepository.insert(new User("deniz", "guzel", "marodona"
+			, "123456", new Role("admin")));
 		TextCriteria criteria = TextCriteria.forDefaultLanguage().matchingAny("deniz");
 		List<User> users = userRepository.findAllBy(criteria);
 

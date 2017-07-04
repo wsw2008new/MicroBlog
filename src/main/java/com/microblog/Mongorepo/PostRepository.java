@@ -1,4 +1,4 @@
-package com.microblog.repo;
+package com.microblog.Mongorepo;
 
 import com.microblog.domain.Post;
 import org.springframework.stereotype.Repository;
