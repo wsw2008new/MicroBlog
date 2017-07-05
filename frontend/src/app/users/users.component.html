@@ -1,7 +1,7 @@
 <div class="card">
 	<div class="card-header">Kullanıcı Ekle</div>
 	<div class="card-block">
-		<form #form="ngForm" (ngSubmit)="addUser(form)">
+		<form #form="ngForm" (ngSubmit)="addUser(form)" novalidate>
 			<div class="row">
 				<div class="col-4">
 					<div class="form-group">
@@ -18,6 +18,16 @@
 						<input type="text" class="form-control" placeholder="Soyisim" name="lastName" ngModel>
 					</div>
 				</div>
+				<div class="col-4">
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="Şifre" name="password" ngModel>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Rol" name="role" ngModel>
+					</div>
+				</div>
 			</div>
 			<button type="submit" class="btn btn-success">Kaydet</button>
 		</form>
@@ -30,6 +40,8 @@
 					<th>Kullanıcı Adı</th>
 					<th>İsim</th>
 					<th>Soyisim</th>
+					<th>Şifre</th>
+					<th>Rol</th>
 					<th>Sil</th>
 				</tr>
 			</thead>
@@ -39,6 +51,8 @@
 					<td>{{user.userName}}</td>
 					<td>{{user.firstName}}</td>
 					<td>{{user.lastName}}</td>
+					<td>{{user.password}}</td>
+					<td>{{user.role.roleName}}</td>
 					<td>
 						<button type="button" class="btn btn-danger" (click)="deleteUser(user)">Sil</button>
 					</td>

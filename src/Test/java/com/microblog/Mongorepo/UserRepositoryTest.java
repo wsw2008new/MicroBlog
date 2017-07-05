@@ -1,7 +1,7 @@
 package com.microblog.Mongorepo;
 
-import com.microblog.domain.Role;
-import com.microblog.domain.User;
+import com.microblog.model.Role;
+import com.microblog.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

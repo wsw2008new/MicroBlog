@@ -1,7 +1,7 @@
 package com.microblog.service.impl;
 
 import com.microblog.Mongorepo.UserRepository;
-import com.microblog.domain.User;
+import com.microblog.model.User;
 import com.microblog.service.UserService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.query.TextCriteria;

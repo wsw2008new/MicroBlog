@@ -1,6 +1,6 @@
 package com.microblog.Mongorepo;
 
-import com.microblog.domain.User;
+import com.microblog.model.User;
 import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;

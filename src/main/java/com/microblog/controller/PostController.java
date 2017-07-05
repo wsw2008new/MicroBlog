@@ -1,6 +1,6 @@
 package com.microblog.controller;
 
-import com.microblog.domain.Post;
+import com.microblog.model.Post;
 import com.microblog.service.PostService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;

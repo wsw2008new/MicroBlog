@@ -1,6 +1,6 @@
 {
 	"/api": {
-		"target": "http://localhost:8080",
+		"target": "mongodb://alikemal:123456alikemal@denizguzel.org:28017/admin?authMechanism=SCRAM-SHA-1",
 		"secure": false
 	}
 }

@@ -1,6 +1,6 @@
 package com.microblog.service;
 
-import com.microblog.domain.User;
+import com.microblog.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;

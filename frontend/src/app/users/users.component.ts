@@ -33,7 +33,7 @@ export class UsersComponent implements OnInit {
 				err => console.error(err)
 			)
 		);
-		form.reset()
+		form.reset();
 	}
 
 	deleteUser(user: User) {
@@ -42,7 +42,6 @@ export class UsersComponent implements OnInit {
 				data => this.users = data,
 				err => console.error(err)
 			)
-		)
-		;
+		);
 	}
 }
