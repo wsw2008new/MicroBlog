@@ -1,4 +1,4 @@
-package com.microblog.domain;
+package com.microblog.model;
 
 import org.springframework.data.mongodb.core.index.TextIndexed;
 
@@ -7,7 +7,9 @@ import java.util.Map;
 public class HashTag extends GenericModel {
 	@TextIndexed
 	private String title;
+
 	private String startedUserID;
+
 	private Map<String, String> mentions;
 
 	public Map<String, String> getMentions() {

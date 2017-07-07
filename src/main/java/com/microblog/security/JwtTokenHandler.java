@@ -16,7 +16,7 @@ public final class JwtTokenHandler {
 	private final String secret;
 	private final UserService userService;
 
-	public JwtTokenHandler(@Value("${app.blog.jwt.secret}") String secret, UserService userService) {
+	public JwtTokenHandler(@Value("${app.jwt.secret}") String secret, UserService userService) {
 		this.secret = secret;
 		this.userService = userService;
 	}

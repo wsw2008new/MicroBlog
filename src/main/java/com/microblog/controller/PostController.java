@@ -1,8 +1,7 @@
 package com.microblog.controller;
 
-import com.microblog.domain.Post;
+import com.microblog.model.Post;
 import com.microblog.service.PostService;
-import com.microblog.service.impl.PostServiceImpl;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,7 @@ public class PostController {
 	@Qualifier("postServiceImpl")
 	private final PostService postService;
 
-	public PostController(PostServiceImpl postService) {
+	public PostController(PostService postService) {
 		this.postService = postService;
 	}
 

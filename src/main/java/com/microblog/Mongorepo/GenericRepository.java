@@ -1,4 +1,4 @@
-package com.microblog.repo;
+package com.microblog.Mongorepo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.NoRepositoryBean;

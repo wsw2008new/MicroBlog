@@ -1,8 +1,7 @@
-package com.microblog.domain;
+package com.microblog.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
 import java.util.List;
 
 @Document(collection = "posts")
@@ -14,17 +13,14 @@ public class Post extends GenericModel {
 
 	private String content;
 
-	private Date date;
-
-	private String author;
+	private User author;
 
 	private List<Comment> commentList;
 
-	public Post(String title, String subtitle, String content, Date date, String author) {
+	public Post(String title, String subtitle, String content, User author) {
 		this.title = title;
 		this.subtitle = subtitle;
 		this.content = content;
-		this.date = date;
 		this.author = author;
 	}
 
@@ -55,19 +51,11 @@ public class Post extends GenericModel {
 		this.content = content;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public String getAuthor() {
+	public User getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(User author) {
 		this.author = author;
 	}
 

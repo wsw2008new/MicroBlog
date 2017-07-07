@@ -1,6 +1,6 @@
 package com.microblog.service.impl;
 
-import com.microblog.repo.GenericRepository;
+import com.microblog.Mongorepo.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;

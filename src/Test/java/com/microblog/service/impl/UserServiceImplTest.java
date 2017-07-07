@@ -1,6 +1,6 @@
 package com.microblog.service.impl;
 
-import com.microblog.domain.User;
+import com.microblog.model.User;
 import com.microblog.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

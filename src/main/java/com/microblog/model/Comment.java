@@ -1,4 +1,4 @@
-package com.microblog.domain;
+package com.microblog.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,14 +9,12 @@ public class Comment extends GenericModel {
 
 	private String review;
 
-	private String date;
+	private Post post;
 
-	private String postId;
-
-	public Comment(String author, String review, String date) {
+	public Comment(String author, String review, Post post) {
 		this.author = author;
 		this.review = review;
-		this.date = date;
+		this.post = post;
 	}
 
 	public String getAuthor() {
@@ -35,19 +33,11 @@ public class Comment extends GenericModel {
 		this.review = review;
 	}
 
-	public String getDate() {
-		return date;
+	public Post getPost() {
+		return post;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
-	}
-
-	public String getPostId() {
-		return postId;
-	}
-
-	public void setPostId(String postId) {
-		this.postId = postId;
+	public void setPost(Post post) {
+		this.post = post;
 	}
 }

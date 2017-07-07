@@ -1,7 +1,7 @@
 package com.microblog.service.impl;
 
-import com.microblog.domain.Post;
-import com.microblog.repo.PostRepository;
+import com.microblog.Mongorepo.PostRepository;
+import com.microblog.model.Post;
 import com.microblog.service.PostService;
 import org.springframework.stereotype.Component;
 

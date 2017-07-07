@@ -1,10 +1,11 @@
 package com.microblog.service;
 
-import com.microblog.domain.User;
+import com.microblog.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 import java.util.Optional;
+
 
 public interface UserService extends UserDetailsService {
 	List<User> findByFirstName(String name);

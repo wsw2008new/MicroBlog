@@ -3,47 +3,82 @@
 	<div class="card-block">
 		<form #form="ngForm" (ngSubmit)="addUser(form)">
 			<div class="row">
-				<div class="col-4">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Kullanıcı Adı" name="userName" ngModel>
+				<div class="col-sm-6 col-md-4">
+					<div class="form-group" [ngClass]="{'has-success': username.valid, 'has-danger': !username.valid && username.touched}">
+						<label class="form-control-label">Kullanıcı Adı</label>
+						<input type="text" class="form-control" [ngClass]="{'form-control-success': username.valid, 'form-control-danger': !username.valid}" placeholder="Kullanıcı Adı" name="userName" #username="ngModel" ngModel required>
+						<div class="form-control-feedback" *ngIf="!username.valid && username.touched">Kullanıcı adı giriniz</div>
 					</div>
 				</div>
-				<div class="col-4">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="İsim" name="firstName" ngModel>
+				<div class="col-sm-6 col-md-4">
+					<div class="form-group" [ngClass]="{'has-success': email.valid, 'has-danger': !email.valid && email.touched}">
+						<label class="form-control-label">E-Posta</label>
+						<input type="text" class="form-control" [ngClass]="{'form-control-success': email.valid, 'form-control-danger': !email.valid}" placeholder="E-Posta" name="email" #email="ngModel" ngModel required email>
+						<div class="form-control-feedback" *ngIf="!email.valid && email.touched">E-Posta giriniz</div>
 					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-sm-6 col-md-4">
+					<div class="form-group" [ngClass]="{'has-success': firstName.valid, 'has-danger': !firstName.valid && firstName.touched}">
+						<label class="form-control-label">İsim</label>
+						<input type="text" class="form-control" [ngClass]="{'form-control-success': firstName.valid, 'form-control-danger': !firstName.valid}" placeholder="İsim" name="firstName" #firstName="ngModel" ngModel required>
+						<div class="form-control-feedback" *ngIf="!firstName.valid && firstName.touched">İsim giriniz</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="form-group" [ngClass]="{'has-success': lastName.valid, 'has-danger': !lastName.valid && lastName.touched}">
+						<label class="form-control-label">Soyisim</label>
+						<input type="text" class="form-control" [ngClass]="{'form-control-success': lastName.valid, 'form-control-danger': !lastName.valid}" placeholder="Soyisim" name="lastName" #lastName="ngModel" ngModel required>
+						<div class="form-control-feedback" *ngIf="!lastName.valid && lastName.touched">Soyisim giriniz</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="form-group" [ngClass]="{'has-success': password.valid, 'has-danger': !password.valid && password.touched}">
+						<label class="form-control-label">Şifre</label>
+						<input type="password" class="form-control" [ngClass]="{'form-control-success': password.valid, 'form-control-danger': !password.valid}" placeholder="Şifre" name="password" #password="ngModel" ngModel required>
+						<div class="form-control-feedback" *ngIf="!password.valid && password.touched">Şifre giriniz</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Soyisim" name="lastName" ngModel>
+						<label class="form-control-label">Rol</label>
+						<select type="text" class="form-control" placeholder="Rol" name="roleName" #role="ngModel" [ngModel]="defaultRole" ngModelGroup="role">
+							<option value="user">User</option>
+							<option value="admin">Admin</option>
+						</select>
 					</div>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-success">Kaydet</button>
+			<button type="submit" class="btn btn-success" [disabled]="!form.valid">Kaydet</button>
 		</form>
 	</div>
 	<div class="card-block">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Kullanıcı Adı</th>
-					<th>İsim</th>
-					<th>Soyisim</th>
-					<th>Sil</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let user of users">
-					<td>{{user.id}}</td>
-					<td>{{user.userName}}</td>
-					<td>{{user.firstName}}</td>
-					<td>{{user.lastName}}</td>
-					<td>
-						<button type="button" class="btn btn-danger" (click)="deleteUser(user)">Sil</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Kullanıcı Adı</th>
+						<th>İsim</th>
+						<th>Soyisim</th>
+						<th>Şifre</th>
+						<th>Rol</th>
+						<th>Sil</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let user of users">
+						<td>{{user.id}}</td>
+						<td>{{user.userName}}</td>
+						<td>{{user.firstName}}</td>
+						<td>{{user.lastName}}</td>
+						<td>{{user.password}}</td>
+						<td>{{user.role.roleName}}</td>
+						<td>
+							<button type="button" class="btn btn-danger" (click)="deleteUser(user)">Sil</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

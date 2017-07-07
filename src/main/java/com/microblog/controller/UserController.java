@@ -1,19 +1,16 @@
 package com.microblog.controller;
 
-import com.microblog.domain.User;
+import com.microblog.model.User;
 import com.microblog.security.JwtTokenHandler;
 import com.microblog.service.UserService;
-import com.microblog.service.impl.UserServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -21,12 +18,11 @@ import java.util.List;
 public class UserController {
 	private static Logger logger = LogManager.getLogger();
 
-	@Qualifier("userServiceImpl")
 	private final UserService userService;
 	private final JwtTokenHandler jwtTokenHandler;
 
 	@Autowired
-	public UserController(UserServiceImpl userService, JwtTokenHandler jwtTokenHandler) {
+	public UserController(@Qualifier("userServiceImpl") UserService userService, JwtTokenHandler jwtTokenHandler) {
 		this.userService = userService;
 		this.jwtTokenHandler = jwtTokenHandler;
 	}
@@ -44,11 +40,12 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/save")
-	public ResponseEntity insertUser(@Valid @RequestBody User user) {
+	public void insertUser(@RequestBody User user) {
+		user.setCreatedDate(new Date());
+		user.setEditedDate(new Date());
+		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 		userService.insert(user);
 		logger.info(user.toString() + " saved to database.");
-		HttpHeaders headers = new HttpHeaders();
-		return new ResponseEntity(headers, HttpStatus.OK);
 	}
 
 	@PutMapping(value = "/update")
@@ -56,7 +53,7 @@ public class UserController {
 		userService.save(user);
 	}
 
-	@DeleteMapping("/delete")
+	@DeleteMapping(value = "/delete")
 	public void deleteUser(@RequestBody User user) {
 		userService.delete(user);
 		logger.info(user.toString() + " deleted from database.");

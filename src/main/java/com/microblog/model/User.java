@@ -1,4 +1,4 @@
-package com.microblog.domain;
+package com.microblog.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,41 +9,40 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 @Document(collection = "users")
 public class User extends GenericModel implements UserDetails {
 
-	@NotNull
-	@Size(min = 2, max = 30)
 	@TextIndexed(weight = 2)
 	private String firstName;
 
-	@NotNull
 	@TextIndexed(weight = 3)
 	private String lastName;
 
-	@NotNull
-	@Size(min = 4, max = 30)
 	@TextIndexed
-	@Pattern(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$")
 	private String userName;
 
-	@NotNull
 	private String password;
+
+	private String email;
 
 	private Role role;
 
-	public User(String firstName, String lastName, String userName, String password, Role role) {
+	public User() {
+	}
+
+	public User(String firstName, String lastName, String userName, String password, String email, Role role, Date createdDate, Date editedDate) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
 		this.password = password;
+		this.email = email;
 		this.role = role;
+		setCreatedDate(createdDate);
+		setEditedDate(editedDate);
 	}
 
 	public String getFirstName() {
@@ -76,7 +75,6 @@ public class User extends GenericModel implements UserDetails {
 		return userName;
 	}
 
-	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}
@@ -84,6 +82,14 @@ public class User extends GenericModel implements UserDetails {
 	@JsonProperty
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Role getRole() {
@@ -98,9 +104,9 @@ public class User extends GenericModel implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
 
-		Role userRoles = this.getRole();
-		if (userRoles != null) {
-			SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRoles.getRoleName());
+		Role role = this.getRole();
+		if (role != null) {
+			SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.getRoleName());
 			authorities.add(authority);
 		}
 		return authorities;

@@ -1,17 +1,16 @@
-package com.microblog.domain;
+package com.microblog.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Document(collection = "roles")
-public class Role extends GenericModel {
+public class Role {
 
-	@NotNull
-	private String roleName;
+	// Default role
+	private String roleName = "user";
 
 	private List<User> userRoles;
+
+	public Role() {
+	}
 
 	public Role(String roleName) {
 		this.roleName = roleName;

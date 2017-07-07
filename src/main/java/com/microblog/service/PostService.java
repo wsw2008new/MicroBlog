@@ -1,6 +1,6 @@
 package com.microblog.service;
 
-import com.microblog.domain.Post;
+import com.microblog.model.Post;
 
 import java.util.List;
 

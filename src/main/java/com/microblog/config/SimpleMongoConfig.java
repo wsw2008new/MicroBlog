@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories(basePackages = "com.microblog.repo")
+@EnableMongoRepositories(basePackages = "com.microblog.Mongorepo")
 public class SimpleMongoConfig {
 	@Bean
 	public Mongo mongo() throws Exception {

@@ -1,7 +1,7 @@
 package com.microblog.filters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.microblog.domain.User;
+import com.microblog.model.User;
 import com.microblog.security.TokenAuthenticationService;
 import com.microblog.service.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
