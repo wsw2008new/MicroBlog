@@ -48,7 +48,7 @@ public class UserController {
 		userService.save(user);
 	}
 
-	@DeleteMapping("/delete")
+	@DeleteMapping(value = "/delete")
 	public void deleteUser(@RequestBody User user) {
 		userService.delete(user);
 		logger.info(user.toString() + " deleted from database.");
