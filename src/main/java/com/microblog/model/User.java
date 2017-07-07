@@ -135,4 +135,16 @@ public class User extends GenericModel implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+			"firstName='" + firstName + '\'' +
+			", lastName='" + lastName + '\'' +
+			", userName='" + userName + '\'' +
+			", password='" + password + '\'' +
+			", email='" + email + '\'' +
+			", role=" + role.getRoleName() +
+			'}';
+	}
 }

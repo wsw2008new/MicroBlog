@@ -30,12 +30,23 @@ public class UserController {
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	@ResponseBody
 	public List<User> getUsers() {
+		if (logger.isDebugEnabled())
+			logger.debug("All users have been listed.");
+
 		return userService.findAll();
 	}
 
 	@RequestMapping(value = "/{firstName}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<User> getUser(@PathVariable("firstName") String name) {
+
+		if (logger.isDebugEnabled()) {
+			List<User> user = userService.findByFirstName(name);
+			for (User users : user)
+				logger.debug(users.toString());
+			logger.debug("Users named by \"" + name + "\" have been listed.");
+		}
+
 		return userService.findByFirstName(name);
 	}
 
@@ -45,7 +56,9 @@ public class UserController {
 		user.setEditedDate(new Date());
 		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 		userService.insert(user);
-		logger.info(user.toString() + " saved to database.");
+
+		if (logger.isDebugEnabled())
+			logger.debug(user.toString() + " saved to database.");
 	}
 
 	@PutMapping(value = "/update")
@@ -56,6 +69,8 @@ public class UserController {
 	@DeleteMapping(value = "/delete")
 	public void deleteUser(@RequestBody User user) {
 		userService.delete(user);
-		logger.info(user.toString() + " deleted from database.");
+
+		if (logger.isDebugEnabled())
+			logger.debug(user.toString() + " deleted from database.");
 	}
 }

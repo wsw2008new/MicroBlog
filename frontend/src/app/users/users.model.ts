@@ -1,4 +1,4 @@
-import { Role } from 'app/users/roles.model';
+import { Role } from 'app/users/role.model';
 export class User {
 	id: string;
 	firstName: string;
