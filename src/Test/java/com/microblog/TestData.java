@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
+import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,14 +30,20 @@ public class TestData {
 				"güzel1",
 				"denizmaradona1",
 				new BCryptPasswordEncoder().encode("password123"),
-				new Role("admin")
+				"email@email.com",
+				new Role("admin"),
+				new Date(),
+				new Date()
 			),
 			new User(
 				"deniz2",
 				"güzel2",
 				"denizmaradona2",
 				new BCryptPasswordEncoder().encode("password123"),
-				new Role()
+				"email@email.com",
+				new Role(),
+				new Date(),
+				new Date()
 			)
 		};
 		mongoOperations.insert(Arrays.asList(users), User.class);

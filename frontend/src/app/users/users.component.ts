@@ -10,6 +10,7 @@ import { UserService } from './users.service';
 export class UsersComponent implements OnInit {
 
 	users: User[] = [];
+	defaultRole = 'user';
 
 	constructor(private userService: UserService) {
 	}
@@ -27,21 +28,18 @@ export class UsersComponent implements OnInit {
 	}
 
 	addUser(form: NgForm) {
+		console.log(form.value);
 		this.userService.addUser(form.value).subscribe(
-			() => this.userService.getUsers().subscribe(
-				data => this.users = data,
-				err => console.error(err)
-			)
+			data => this.getUsers(),
+			err => console.error(err)
 		);
 		form.reset();
 	}
 
 	deleteUser(user: User) {
 		this.userService.deleteUser(user).subscribe(
-			() => this.userService.getUsers().subscribe(
-				data => this.users = data,
-				err => console.error(err)
-			)
+			data => this.getUsers(),
+			err => console.error(err)
 		);
 	}
 }

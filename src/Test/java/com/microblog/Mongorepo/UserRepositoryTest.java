@@ -7,8 +7,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.query.TextCriteria;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -20,8 +22,18 @@ public class UserRepositoryTest {
 
 	@Test
 	public void findAllBy() throws Exception {
-		userRepository.insert(new User("deniz", "guzel", "marodona"
-			, "123456", new Role("admin")));
+		userRepository.insert(
+			new User(
+				"deniz",
+				"güzel",
+				"denizmaradona",
+				new BCryptPasswordEncoder().encode("123"),
+				"deniz@gmail.com",
+				new Role("admin"),
+				new Date(),
+				new Date()
+			))
+		;
 		TextCriteria criteria = TextCriteria.forDefaultLanguage().matchingAny("deniz");
 		List<User> users = userRepository.findAllBy(criteria);
 

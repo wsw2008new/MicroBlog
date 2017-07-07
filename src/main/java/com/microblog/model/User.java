@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 @Document(collection = "users")
 public class User extends GenericModel implements UserDetails {
@@ -26,14 +27,22 @@ public class User extends GenericModel implements UserDetails {
 
 	private String password;
 
+	private String email;
+
 	private Role role;
 
-	public User(String firstName, String lastName, String userName, String password, Role role) {
+	public User() {
+	}
+
+	public User(String firstName, String lastName, String userName, String password, String email, Role role, Date createdDate, Date editedDate) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
 		this.password = password;
+		this.email = email;
 		this.role = role;
+		setCreatedDate(createdDate);
+		setEditedDate(editedDate);
 	}
 
 	public String getFirstName() {
@@ -66,7 +75,6 @@ public class User extends GenericModel implements UserDetails {
 		return userName;
 	}
 
-	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}
@@ -74,6 +82,14 @@ public class User extends GenericModel implements UserDetails {
 	@JsonProperty
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Role getRole() {

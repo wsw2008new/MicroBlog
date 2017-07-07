@@ -7,8 +7,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -39,6 +41,9 @@ public class UserController {
 
 	@PostMapping(value = "/save")
 	public void insertUser(@RequestBody User user) {
+		user.setCreatedDate(new Date());
+		user.setEditedDate(new Date());
+		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 		userService.insert(user);
 		logger.info(user.toString() + " saved to database.");
 	}
