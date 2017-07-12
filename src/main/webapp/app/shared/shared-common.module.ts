@@ -2,31 +2,32 @@ import { NgModule } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import {
-    MicroblogSharedLibsModule,
-    JhiLanguageHelper,
-    FindLanguageFromKeyPipe,
-    JhiAlertComponent,
-    JhiAlertErrorComponent
+	FindLanguageFromKeyPipe,
+	JhiAlertComponent,
+	JhiAlertErrorComponent,
+	JhiLanguageHelper,
+	MicroblogSharedLibsModule
 } from './';
 
 @NgModule({
-    imports: [
-        MicroblogSharedLibsModule
-    ],
-    declarations: [
-        FindLanguageFromKeyPipe,
-        JhiAlertComponent,
-        JhiAlertErrorComponent
-    ],
-    providers: [
-        JhiLanguageHelper,
-        Title
-    ],
-    exports: [
-        MicroblogSharedLibsModule,
-        FindLanguageFromKeyPipe,
-        JhiAlertComponent,
-        JhiAlertErrorComponent
-    ]
+	imports: [
+		MicroblogSharedLibsModule
+	],
+	declarations: [
+		FindLanguageFromKeyPipe,
+		JhiAlertComponent,
+		JhiAlertErrorComponent
+	],
+	providers: [
+		JhiLanguageHelper,
+		Title
+	],
+	exports: [
+		MicroblogSharedLibsModule,
+		FindLanguageFromKeyPipe,
+		JhiAlertComponent,
+		JhiAlertErrorComponent
+	]
 })
-export class MicroblogSharedCommonModule {}
+export class MicroblogSharedCommonModule {
+}

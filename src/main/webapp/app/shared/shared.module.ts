@@ -1,49 +1,53 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import {
+	CUSTOM_ELEMENTS_SCHEMA,
+	NgModule
+} from '@angular/core';
 
 import {
-    MicroblogSharedLibsModule,
-    MicroblogSharedCommonModule,
-    CSRFService,
-    AuthServerProvider,
-    AccountService,
-    UserService,
-    StateStorageService,
-    LoginService,
-    LoginModalService,
-    Principal,
-    HasAnyAuthorityDirective,
-    JhiLoginModalComponent
+	AccountService,
+	AuthServerProvider,
+	CSRFService,
+	HasAnyAuthorityDirective,
+	JhiLoginModalComponent,
+	LoginModalService,
+	LoginService,
+	MicroblogSharedCommonModule,
+	MicroblogSharedLibsModule,
+	Principal,
+	StateStorageService,
+	UserService
 } from './';
 
 @NgModule({
-    imports: [
-        MicroblogSharedLibsModule,
-        MicroblogSharedCommonModule
-    ],
-    declarations: [
-        JhiLoginModalComponent,
-        HasAnyAuthorityDirective
-    ],
-    providers: [
-        LoginService,
-        LoginModalService,
-        AccountService,
-        StateStorageService,
-        Principal,
-        CSRFService,
-        AuthServerProvider,
-        UserService,
-        DatePipe
-    ],
-    entryComponents: [JhiLoginModalComponent],
-    exports: [
-        MicroblogSharedCommonModule,
-        JhiLoginModalComponent,
-        HasAnyAuthorityDirective,
-        DatePipe
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+	imports: [
+		MicroblogSharedLibsModule,
+		MicroblogSharedCommonModule
+	],
+	declarations: [
+		JhiLoginModalComponent,
+		HasAnyAuthorityDirective
+	],
+	providers: [
+		LoginService,
+		LoginModalService,
+		AccountService,
+		StateStorageService,
+		Principal,
+		CSRFService,
+		AuthServerProvider,
+		UserService,
+		DatePipe
+	],
+	entryComponents: [JhiLoginModalComponent],
+	exports: [
+		MicroblogSharedCommonModule,
+		JhiLoginModalComponent,
+		HasAnyAuthorityDirective,
+		DatePipe
+	],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
-export class MicroblogSharedModule {}
+export class MicroblogSharedModule {
+}

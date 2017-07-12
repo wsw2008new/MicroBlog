@@ -1,7 +1,6 @@
 package com.microblog.repository;
 
 import com.microblog.domain.Authority;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
