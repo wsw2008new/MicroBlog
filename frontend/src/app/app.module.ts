@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutesModule } from 'app/app-routes.module';
@@ -20,7 +20,7 @@ import { UserService } from './users/users.service';
 	imports: [
 		BrowserModule,
 		HttpModule,
-		FormsModule,
+		ReactiveFormsModule,
 		AppRoutesModule
 	],
 	providers: [UserService],

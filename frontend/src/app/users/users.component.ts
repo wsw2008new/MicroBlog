@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from './users.model';
 import { UserService } from './users.service';
 
@@ -9,13 +9,23 @@ import { UserService } from './users.service';
 })
 export class UsersComponent implements OnInit {
 
+	signUpForm: FormGroup;
 	users: User[] = [];
-	defaultRole = 'user';
 
 	constructor(private userService: UserService) {
 	}
 
 	ngOnInit() {
+		this.signUpForm = new FormGroup({
+			'userName': new FormControl(null, Validators.required),
+			'email': new FormControl(null, [Validators.required, Validators.email]),
+			'firstName': new FormControl(null, Validators.required),
+			'lastName': new FormControl(null, Validators.required),
+			'password': new FormControl(null, Validators.required),
+			'role': new FormGroup({
+				'roleName': new FormControl('user')
+			})
+		});
 		this.getUsers();
 	}
 
@@ -27,13 +37,13 @@ export class UsersComponent implements OnInit {
 		);
 	}
 
-	addUser(form: NgForm) {
-		console.log(form.value);
-		this.userService.addUser(form.value).subscribe(
+	addUser() {
+		console.log(this.signUpForm.value);
+		this.userService.addUser(this.signUpForm.value).subscribe(
 			data => this.getUsers(),
 			err => console.error(err)
 		);
-		form.reset();
+		this.signUpForm.reset();
 	}
 
 	deleteUser(user: User) {
