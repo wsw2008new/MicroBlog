@@ -18,7 +18,7 @@
     "prodDatabaseType": "mongodb",
     "searchEngine": false,
     "messageBroker": false,
-    "serviceDiscoveryType": "eureka",
+    "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSocialSignIn": false,
     "jwtSecretKey": "7e719f23dd20a820e44005f87dd5daf41d5db6cd",
