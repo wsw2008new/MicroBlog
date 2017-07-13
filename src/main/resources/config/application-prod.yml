@@ -28,7 +28,7 @@ spring:
             enabled: false
     data:
         mongodb:
-            uri: mongodb://localhost:27017
+            uri: mongodb://alikemal:123456alikemal@denizguzel.org:27017/admin?authMechanism=SCRAM-SHA-1
             database: microblog
     mail:
         host: localhost
