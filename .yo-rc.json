@@ -2,7 +2,7 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "com.microblog",
-      "nativeLanguage": "tr"
+      "nativeLanguage": "en"
     },
     "jhipsterVersion": "4.6.1",
     "baseName": "microblog",
@@ -29,10 +29,10 @@
     "testFrameworks": [],
     "jhiPrefix": "jhi",
     "enableTranslation": true,
-    "nativeLanguage": "tr",
+    "nativeLanguage": "en",
     "languages": [
-      "tr",
-      "en"
+      "en",
+      "tr"
     ]
   }
 }

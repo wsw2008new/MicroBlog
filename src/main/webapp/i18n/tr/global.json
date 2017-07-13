@@ -56,7 +56,7 @@
                 }
             },
             "error": {
-                "dontmatch" : "Şifreler eşleşmedi!"
+                "dontmatch": "Şifreler eşleşmedi!"
             },
             "validate": {
                 "newpassword": {
@@ -79,10 +79,10 @@
             }
         },
         "field": {
-            "id" : "ID"
+            "id": "ID"
         },
         "ribbon": {
-            "dev":"Development"
+            "dev": "Development"
         },
         "item-count": "Toplam {{total}} kaydın {{first}} - {{second}} arası gösteriliyor."
     },

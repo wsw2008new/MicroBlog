@@ -3,7 +3,7 @@
       xsi:schemaLocation="http://www.thymeleaf.org ">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="${baseUrl}/favicon.ico" />
+    <link rel="shortcut icon" href="${baseUrl}/favicon.ico"/>
     <title>Your request cannot be processed</title>
     <style>
         ::-moz-selection {
@@ -142,22 +142,22 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <h1 th:text="#{error.title}">Your request cannot be processed <span>:(</span></h1>
+    <div class="container">
+        <h1 th:text="#{error.title}">Your request cannot be processed <span>:(</span></h1>
 
-    <p th:text="#{error.subtitle}">Sorry, an error has occurred.</p>
+        <p th:text="#{error.subtitle}">Sorry, an error has occurred.</p>
 
-    <span th:text="#{error.status}">Status:</span>&nbsp;<span th:text="${error}"></span>&nbsp;(<span th:text="${error}"></span>)<br/>
-    <span th:if="${!#strings.isEmpty(message)}">
+        <span th:text="#{error.status}">Status:</span>&nbsp;<span th:text="${error}"></span>&nbsp;(<span th:text="${error}"></span>)<br/>
+        <span th:if="${!#strings.isEmpty(message)}">
         <span th:text="#{error.message}">Message:</span>&nbsp;<span th:text="${message}"></span><br/>
     </span>
 
-    <script th:inline="text">
-        /*<![CDATA[*/
-        var GOOG_FIXURL_LANG = '[[${#locale.language}]]', GOOG_FIXURL_SITE = location.host;
-        /*]]>*/
-    </script>
-    <script src="https://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
-</div>
+        <script th:inline="text">
+            /*<![CDATA[*/
+            var GOOG_FIXURL_LANG = '[[${#locale.language}]]', GOOG_FIXURL_SITE = location.host;
+            /*]]>*/
+        </script>
+        <script src="https://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+    </div>
 </body>
 </html>

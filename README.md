@@ -1,19 +1,4 @@
-MicroBlog with Spring  [![CircleCI](https://circleci.com/gh/alikemalocalan/MicroBlog/tree/master.svg?style=svg)](https://circleci.com/gh/alikemalocalan/MicroBlog/tree/master)
-===================
-
-Project Scope and Modules
-----------------------------------------
->- SpringCore and Spring MVC  integration
->- Spring Boot
->- Log4J2 for logging
->- Public API Support for mobil or other platforms
->- OrientDB/FlockDB with MongoDB for taxonomies or follows
->- Angular 4 - Bootstrap 4 integration
->- Apache Mahout/SparkML for #TT or Headline
-
-**Feature:** Consider MessageQuery for Java EE
-
-
+# microblog
 This application was generated using JHipster 4.6.1, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.6.1](https://jhipster.github.io/documentation-archive/v4.6.1).
 
 ## Development
@@ -146,7 +131,6 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [JHipster 4.6.1 archive]: https://jhipster.github.io/documentation-archive/v4.6.1
 
 [Using JHipster in development]: https://jhipster.github.io/documentation-archive/v4.6.1/development/
-[Service Discovery and Configuration with the JHipster-Registry]: https://jhipster.github.io/documentation-archive/v4.6.1/microservices-architecture/#jhipster-registry
 [Using Docker and Docker-Compose]: https://jhipster.github.io/documentation-archive/v4.6.1/docker-compose
 [Using JHipster in production]: https://jhipster.github.io/documentation-archive/v4.6.1/production/
 [Running tests page]: https://jhipster.github.io/documentation-archive/v4.6.1/running-tests/

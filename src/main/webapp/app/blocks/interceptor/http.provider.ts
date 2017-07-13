@@ -1,17 +1,7 @@
 import { Injector } from '@angular/core';
-import {
-	Http,
-	RequestOptions,
-	XHRBackend
-} from '@angular/http';
-import {
-	JhiEventManager,
-	JhiInterceptableHttp
-} from 'ng-jhipster';
-import {
-	LocalStorageService,
-	SessionStorageService
-} from 'ng2-webstorage';
+import { Http, RequestOptions, XHRBackend } from '@angular/http';
+import { JhiEventManager, JhiInterceptableHttp } from 'ng-jhipster';
+import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 import { AuthExpiredInterceptor } from './auth-expired.interceptor';
 
 import { AuthInterceptor } from './auth.interceptor';
@@ -19,35 +9,35 @@ import { ErrorHandlerInterceptor } from './errorhandler.interceptor';
 import { NotificationInterceptor } from './notification.interceptor';
 
 export function interceptableFactory(backend: XHRBackend,
-	defaultOptions: RequestOptions,
-	localStorage: LocalStorageService,
-	sessionStorage: SessionStorageService,
-	injector: Injector,
-	eventManager: JhiEventManager) {
-	return new JhiInterceptableHttp(
-		backend,
-		defaultOptions,
-		[
-			new AuthInterceptor(localStorage, sessionStorage),
-			new AuthExpiredInterceptor(injector),
-			// Other interceptors can be added here
-			new ErrorHandlerInterceptor(eventManager),
-			new NotificationInterceptor(injector)
-		]
-	);
+                                     defaultOptions: RequestOptions,
+                                     localStorage: LocalStorageService,
+                                     sessionStorage: SessionStorageService,
+                                     injector: Injector,
+                                     eventManager: JhiEventManager) {
+    return new JhiInterceptableHttp(
+        backend,
+        defaultOptions,
+        [
+            new AuthInterceptor(localStorage, sessionStorage),
+            new AuthExpiredInterceptor(injector),
+            // Other interceptors can be added here
+            new ErrorHandlerInterceptor(eventManager),
+            new NotificationInterceptor(injector)
+        ]
+    );
 };
 
 export function customHttpProvider() {
-	return {
-		provide: Http,
-		useFactory: interceptableFactory,
-		deps: [
-			XHRBackend,
-			RequestOptions,
-			LocalStorageService,
-			SessionStorageService,
-			Injector,
-			JhiEventManager
-		]
-	};
+    return {
+        provide: Http,
+        useFactory: interceptableFactory,
+        deps: [
+            XHRBackend,
+            RequestOptions,
+            LocalStorageService,
+            SessionStorageService,
+            Injector,
+            JhiEventManager
+        ]
+    };
 };

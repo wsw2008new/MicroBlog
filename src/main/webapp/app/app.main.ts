@@ -5,7 +5,7 @@ import { ProdConfig } from './blocks/config/prod.config';
 ProdConfig();
 
 if (module['hot']) {
-	module['hot'].accept();
+    module['hot'].accept();
 }
 
 platformBrowserDynamic().bootstrapModule(MicroblogAppModule)
