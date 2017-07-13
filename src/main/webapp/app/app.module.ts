@@ -16,32 +16,32 @@ import './vendor.ts';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        LayoutRoutingModule,
-        Ng2Webstorage.forRoot({prefix: 'jhi', separator: '-'}),
-        MicroblogSharedModule,
-        MicroblogHomeModule,
-        MicroblogAdminModule,
-        MicroblogAccountModule,
-        MicroblogEntityModule
-        // jhipster-needle-angular-add-module JHipster will add new module here
-    ],
-    declarations: [
-        JhiMainComponent,
-        NavbarComponent,
-        ErrorComponent,
-        PageRibbonComponent,
-        ActiveMenuDirective,
-        FooterComponent
-    ],
-    providers: [
-        ProfileService,
-        customHttpProvider(),
-        PaginationConfig,
-        UserRouteAccessService
-    ],
-    bootstrap: [JhiMainComponent]
+	imports: [
+		BrowserModule,
+		LayoutRoutingModule,
+		Ng2Webstorage.forRoot({prefix: 'jhi', separator: '-'}),
+		MicroblogSharedModule,
+		MicroblogHomeModule,
+		MicroblogAdminModule,
+		MicroblogAccountModule,
+		MicroblogEntityModule
+		// jhipster-needle-angular-add-module JHipster will add new module here
+	],
+	declarations: [
+		JhiMainComponent,
+		NavbarComponent,
+		ErrorComponent,
+		PageRibbonComponent,
+		ActiveMenuDirective,
+		FooterComponent
+	],
+	providers: [
+		ProfileService,
+		customHttpProvider(),
+		PaginationConfig,
+		UserRouteAccessService
+	],
+	bootstrap: [JhiMainComponent]
 })
 export class MicroblogAppModule {
 }

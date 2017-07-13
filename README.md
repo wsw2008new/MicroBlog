@@ -1,4 +1,19 @@
-# microblog
+
+MicroBlog with Spring  [![CircleCI](https://circleci.com/gh/alikemalocalan/MicroBlog/tree/master.svg?style=svg)](https://circleci.com/gh/alikemalocalan/MicroBlog/tree/master)
+===================
+
+Project Scope and Modules
+----------------------------------------
+>- SpringCore and Spring MVC  integration
+>- Spring Boot
+>- Log4J for logging
+>- Public API Support for mobil or other platforms
+>- orientDB/FlockDB with MongoDB for taxonomies or follows
+>- AngularJS - Bootstrap 4 integration
+>- Apache Mahout/SparkML for #TT or Headline
+
+**Feature:** Consider MessageQuery for Java EE
+
 This application was generated using JHipster 4.6.1, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.6.1](https://jhipster.github.io/documentation-archive/v4.6.1).
 
 ## Development

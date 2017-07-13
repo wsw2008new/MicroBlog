@@ -31,35 +31,35 @@ import java.util.List;
 @EnableMongoAuditing(auditorAwareRef = "springSecurityAuditorAware")
 public class DatabaseConfiguration {
 
-    private final Logger log = LoggerFactory.getLogger(DatabaseConfiguration.class);
+	private final Logger log = LoggerFactory.getLogger(DatabaseConfiguration.class);
 
-    @Bean
-    public ValidatingMongoEventListener validatingMongoEventListener() {
-        return new ValidatingMongoEventListener(validator());
-    }
+	@Bean
+	public ValidatingMongoEventListener validatingMongoEventListener() {
+		return new ValidatingMongoEventListener(validator());
+	}
 
-    @Bean
-    public LocalValidatorFactoryBean validator() {
-        return new LocalValidatorFactoryBean();
-    }
+	@Bean
+	public LocalValidatorFactoryBean validator() {
+		return new LocalValidatorFactoryBean();
+	}
 
-    @Bean
-    public CustomConversions customConversions() {
-        List<Converter<?, ?>> converters = new ArrayList<>();
-        converters.add(DateToZonedDateTimeConverter.INSTANCE);
-        converters.add(ZonedDateTimeToDateConverter.INSTANCE);
-        return new CustomConversions(converters);
-    }
+	@Bean
+	public CustomConversions customConversions() {
+		List<Converter<?, ?>> converters = new ArrayList<>();
+		converters.add(DateToZonedDateTimeConverter.INSTANCE);
+		converters.add(ZonedDateTimeToDateConverter.INSTANCE);
+		return new CustomConversions(converters);
+	}
 
-    @Bean
-    public Mongobee mongobee(MongoClient mongoClient, MongoTemplate mongoTemplate, MongoProperties mongoProperties) {
-        log.debug("Configuring Mongobee");
-        Mongobee mongobee = new Mongobee(mongoClient);
-        mongobee.setDbName(mongoProperties.getDatabase());
-        mongobee.setMongoTemplate(mongoTemplate);
-        // package to scan for migrations
-        mongobee.setChangeLogsScanPackage("com.microblog.config.dbmigrations");
-        mongobee.setEnabled(true);
-        return mongobee;
-    }
+	@Bean
+	public Mongobee mongobee(MongoClient mongoClient, MongoTemplate mongoTemplate, MongoProperties mongoProperties) {
+		log.debug("Configuring Mongobee");
+		Mongobee mongobee = new Mongobee(mongoClient);
+		mongobee.setDbName(mongoProperties.getDatabase());
+		mongobee.setMongoTemplate(mongoTemplate);
+		// package to scan for migrations
+		mongobee.setChangeLogsScanPackage("com.microblog.config.dbmigrations");
+		mongobee.setEnabled(true);
+		return mongobee;
+	}
 }

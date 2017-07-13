@@ -6,44 +6,44 @@ import { adminState, AuditsComponent, AuditsService, JhiConfigurationComponent, 
 /* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
 
 @NgModule({
-    imports: [
-        MicroblogSharedModule,
-        RouterModule.forRoot(adminState, {useHash: true})
-        /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
-    ],
-    declarations: [
-        AuditsComponent,
-        UserMgmtComponent,
-        UserDialogComponent,
-        UserDeleteDialogComponent,
-        UserMgmtDetailComponent,
-        UserMgmtDialogComponent,
-        UserMgmtDeleteDialogComponent,
-        LogsComponent,
-        JhiConfigurationComponent,
-        JhiHealthCheckComponent,
-        JhiHealthModalComponent,
-        JhiDocsComponent,
-        JhiMetricsMonitoringComponent,
-        JhiMetricsMonitoringModalComponent
-    ],
-    entryComponents: [
-        UserMgmtDialogComponent,
-        UserMgmtDeleteDialogComponent,
-        JhiHealthModalComponent,
-        JhiMetricsMonitoringModalComponent
-    ],
-    providers: [
-        AuditsService,
-        JhiConfigurationService,
-        JhiHealthService,
-        JhiMetricsService,
-        LogsService,
-        UserResolvePagingParams,
-        UserResolve,
-        UserModalService
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+	imports: [
+		MicroblogSharedModule,
+		RouterModule.forRoot(adminState, {useHash: true})
+		/* jhipster-needle-add-admin-module - JHipster will add admin modules here */
+	],
+	declarations: [
+		AuditsComponent,
+		UserMgmtComponent,
+		UserDialogComponent,
+		UserDeleteDialogComponent,
+		UserMgmtDetailComponent,
+		UserMgmtDialogComponent,
+		UserMgmtDeleteDialogComponent,
+		LogsComponent,
+		JhiConfigurationComponent,
+		JhiHealthCheckComponent,
+		JhiHealthModalComponent,
+		JhiDocsComponent,
+		JhiMetricsMonitoringComponent,
+		JhiMetricsMonitoringModalComponent
+	],
+	entryComponents: [
+		UserMgmtDialogComponent,
+		UserMgmtDeleteDialogComponent,
+		JhiHealthModalComponent,
+		JhiMetricsMonitoringModalComponent
+	],
+	providers: [
+		AuditsService,
+		JhiConfigurationService,
+		JhiHealthService,
+		JhiMetricsService,
+		LogsService,
+		UserResolvePagingParams,
+		UserResolve,
+		UserModalService
+	],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MicroblogAdminModule {
 }
