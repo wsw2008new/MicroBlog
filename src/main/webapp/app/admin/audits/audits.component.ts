@@ -1,8 +1,5 @@
 import { DatePipe } from '@angular/common';
-import {
-	Component,
-	OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JhiParseLinks } from 'ng-jhipster';
 import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 import { ITEMS_PER_PAGE } from '../../shared';
@@ -26,9 +23,9 @@ export class AuditsComponent implements OnInit {
 	totalItems: number;
 
 	constructor(private auditsService: AuditsService,
-		private parseLinks: JhiParseLinks,
-		private paginationConfig: PaginationConfig,
-		private datePipe: DatePipe) {
+	            private parseLinks: JhiParseLinks,
+	            private paginationConfig: PaginationConfig,
+	            private datePipe: DatePipe) {
 		this.itemsPerPage = ITEMS_PER_PAGE;
 		this.page = 1;
 		this.reverse = false;

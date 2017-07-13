@@ -1,14 +1,7 @@
-import {
-	Component,
-	OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JhiLanguageService } from 'ng-jhipster';
 
-import {
-	AccountService,
-	JhiLanguageHelper,
-	Principal
-} from '../../shared';
+import { AccountService, JhiLanguageHelper, Principal } from '../../shared';
 
 @Component({
 	selector: 'jhi-settings',
@@ -21,9 +14,9 @@ export class SettingsComponent implements OnInit {
 	languages: any[];
 
 	constructor(private account: AccountService,
-		private principal: Principal,
-		private languageService: JhiLanguageService,
-		private languageHelper: JhiLanguageHelper) {
+	            private principal: Principal,
+	            private languageService: JhiLanguageService,
+	            private languageHelper: JhiLanguageHelper) {
 	}
 
 	ngOnInit() {

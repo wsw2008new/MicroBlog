@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-	ActivatedRouteSnapshot,
-	CanActivate,
-	Resolve,
-	RouterStateSnapshot,
-	Routes
-} from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Resolve, RouterStateSnapshot, Routes } from '@angular/router';
 
 import { JhiPaginationUtil } from 'ng-jhipster';
 

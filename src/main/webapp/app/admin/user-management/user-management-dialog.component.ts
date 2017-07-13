@@ -1,20 +1,9 @@
-import {
-	Component,
-	OnDestroy,
-	OnInit
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import {
-	NgbActiveModal,
-	NgbModalRef
-} from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
-import {
-	JhiLanguageHelper,
-	User,
-	UserService
-} from '../../shared';
+import { JhiLanguageHelper, User, UserService } from '../../shared';
 
 import { UserModalService } from './user-modal.service';
 
@@ -30,9 +19,9 @@ export class UserMgmtDialogComponent implements OnInit {
 	isSaving: Boolean;
 
 	constructor(public activeModal: NgbActiveModal,
-		private languageHelper: JhiLanguageHelper,
-		private userService: UserService,
-		private eventManager: JhiEventManager) {
+	            private languageHelper: JhiLanguageHelper,
+	            private userService: UserService,
+	            private eventManager: JhiEventManager) {
 	}
 
 	ngOnInit() {
@@ -53,9 +42,11 @@ export class UserMgmtDialogComponent implements OnInit {
 	save() {
 		this.isSaving = true;
 		if (this.user.id !== null) {
-			this.userService.update(this.user).subscribe((response) => this.onSaveSuccess(response), () => this.onSaveError());
+			this.userService.update(this.user)
+			.subscribe((response) => this.onSaveSuccess(response), () => this.onSaveError());
 		} else {
-			this.userService.create(this.user).subscribe((response) => this.onSaveSuccess(response), () => this.onSaveError());
+			this.userService.create(this.user)
+			.subscribe((response) => this.onSaveSuccess(response), () => this.onSaveError());
 		}
 	}
 
@@ -80,7 +71,7 @@ export class UserDialogComponent implements OnInit, OnDestroy {
 	routeSub: any;
 
 	constructor(private route: ActivatedRoute,
-		private userModalService: UserModalService) {
+	            private userModalService: UserModalService) {
 	}
 
 	ngOnInit() {

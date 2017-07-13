@@ -1,7 +1,4 @@
-import {
-	Component,
-	OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { LoginModalService } from '../../shared';
@@ -18,8 +15,8 @@ export class ActivateComponent implements OnInit {
 	modalRef: NgbModalRef;
 
 	constructor(private activateService: ActivateService,
-		private loginModalService: LoginModalService,
-		private route: ActivatedRoute) {
+	            private loginModalService: LoginModalService,
+	            private route: ActivatedRoute) {
 	}
 
 	ngOnInit() {

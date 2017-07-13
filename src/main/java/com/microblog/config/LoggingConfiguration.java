@@ -19,15 +19,13 @@ public class LoggingConfiguration {
 	private final Logger log = LoggerFactory.getLogger(LoggingConfiguration.class);
 	private final String appName;
 	private final String serverPort;
-	private final String instanceId;
 	private final JHipsterProperties jHipsterProperties;
 	private LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
 
 	public LoggingConfiguration(@Value("${spring.application.name}") String appName, @Value("${server.port}") String serverPort,
-	                            @Value("${eureka.instance.instanceId}") String instanceId, JHipsterProperties jHipsterProperties) {
+	                            JHipsterProperties jHipsterProperties) {
 		this.appName = appName;
 		this.serverPort = serverPort;
-		this.instanceId = instanceId;
 		this.jHipsterProperties = jHipsterProperties;
 		if (jHipsterProperties.getLogging().getLogstash().isEnabled()) {
 			addLogstashAppender(context);

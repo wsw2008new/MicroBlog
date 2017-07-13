@@ -1,12 +1,6 @@
 import { Injector } from '@angular/core';
-import {
-	RequestOptionsArgs,
-	Response
-} from '@angular/http';
-import {
-	JhiAlertService,
-	JhiHttpInterceptor
-} from 'ng-jhipster';
+import { RequestOptionsArgs, Response } from '@angular/http';
+import { JhiAlertService, JhiHttpInterceptor } from 'ng-jhipster';
 import { Observable } from 'rxjs/Observable';
 
 export class NotificationInterceptor extends JhiHttpInterceptor {

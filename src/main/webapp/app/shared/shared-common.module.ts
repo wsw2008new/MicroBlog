@@ -1,13 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import {
-	FindLanguageFromKeyPipe,
-	JhiAlertComponent,
-	JhiAlertErrorComponent,
-	JhiLanguageHelper,
-	MicroblogSharedLibsModule
-} from './';
+import { FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent, JhiLanguageHelper, MicroblogSharedLibsModule } from './';
 
 @NgModule({
 	imports: [

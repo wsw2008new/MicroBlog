@@ -14,7 +14,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 			// set below to true to make alerts look like toast
 			alertAsToast: false,
 			i18nEnabled: true,
-			defaultI18nLang: 'tr'
+			defaultI18nLang: 'en'
 		}),
 		InfiniteScrollModule,
 		CookieModule.forRoot()

@@ -1,82 +1,82 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { DatePipe } from '@angular/common';
-import { NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
 import { JhiParseLinks } from 'ng-jhipster';
-import { MicroblogTestModule } from '../../../test.module';
-import { PaginationConfig } from '../../../../../../main/webapp/app/blocks/config/uib-pagination.config'
 import { AuditsComponent } from '../../../../../../main/webapp/app/admin/audits/audits.component';
 import { AuditsService } from '../../../../../../main/webapp/app/admin/audits/audits.service';
+import { PaginationConfig } from '../../../../../../main/webapp/app/blocks/config/uib-pagination.config';
 import { ITEMS_PER_PAGE } from '../../../../../../main/webapp/app/shared';
+import { MicroblogTestModule } from '../../../test.module';
 
-function getDate(isToday= true) {
-    let date: Date = new Date();
-    if (isToday) {
-        // Today + 1 day - needed if the current day must be included
-        date.setDate(date.getDate() + 1);
-    } else {
-      // get last month
-      if (date.getMonth() === 0) {
-        date = new Date(date.getFullYear() - 1, 11, date.getDate());
-      } else {
-        date = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
-      }
-    }
-    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+function getDate(isToday = true) {
+	let date: Date = new Date();
+	if (isToday) {
+		// Today + 1 day - needed if the current day must be included
+		date.setDate(date.getDate() + 1);
+	} else {
+		// get last month
+		if (date.getMonth() === 0) {
+			date = new Date(date.getFullYear() - 1, 11, date.getDate());
+		} else {
+			date = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
+		}
+	}
+	return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 }
 
 describe('Component Tests', () => {
 
-    describe('AuditsComponent', () => {
+	describe('AuditsComponent', () => {
 
-        let comp: AuditsComponent;
-        let fixture: ComponentFixture<AuditsComponent>;
-        let service: AuditsService;
+		let comp: AuditsComponent;
+		let fixture: ComponentFixture<AuditsComponent>;
+		let service: AuditsService;
 
-        beforeEach(async(() => {
-            TestBed.configureTestingModule({
-                imports: [MicroblogTestModule],
-                declarations: [AuditsComponent],
-                providers: [
-                    AuditsService,
-                    NgbPaginationConfig,
-                    JhiParseLinks,
-                    PaginationConfig,
-                    DatePipe
-                ]
-            }).overrideTemplate(AuditsComponent, '')
-            .compileComponents();
-        }));
+		beforeEach(async(() => {
+			TestBed.configureTestingModule({
+				imports: [MicroblogTestModule],
+				declarations: [AuditsComponent],
+				providers: [
+					AuditsService,
+					NgbPaginationConfig,
+					JhiParseLinks,
+					PaginationConfig,
+					DatePipe
+				]
+			}).overrideTemplate(AuditsComponent, '')
+			.compileComponents();
+		}));
 
-        beforeEach(() => {
-            fixture = TestBed.createComponent(AuditsComponent);
-            comp = fixture.componentInstance;
-            service = fixture.debugElement.injector.get(AuditsService);
-        });
+		beforeEach(() => {
+			fixture = TestBed.createComponent(AuditsComponent);
+			comp = fixture.componentInstance;
+			service = fixture.debugElement.injector.get(AuditsService);
+		});
 
-        describe('today function ', () => {
-            it('should set toDate to current date', () => {
-               comp.today();
-               expect(comp.toDate).toBe(getDate());
-            });
-        });
+		describe('today function ', () => {
+			it('should set toDate to current date', () => {
+				comp.today();
+				expect(comp.toDate).toBe(getDate());
+			});
+		});
 
-        describe('previousMonth function ', () => {
-            it('should set fromDate to current date', () => {
-               comp.previousMonth();
-               expect(comp.fromDate).toBe(getDate(false));
-            });
-        });
+		describe('previousMonth function ', () => {
+			it('should set fromDate to current date', () => {
+				comp.previousMonth();
+				expect(comp.fromDate).toBe(getDate(false));
+			});
+		});
 
-        describe('By default, on init', () => {
-            it('should set all default values correctly', () => {
-               fixture.detectChanges();
-               expect(comp.toDate).toBe(getDate());
-               expect(comp.fromDate).toBe(getDate(false));
-               expect(comp.itemsPerPage).toBe(ITEMS_PER_PAGE);
-               expect(comp.page).toBe(1);
-               expect(comp.reverse).toBeFalsy();
-               expect(comp.orderProp).toBe('timestamp');
-            });
-        });
-    });
+		describe('By default, on init', () => {
+			it('should set all default values correctly', () => {
+				fixture.detectChanges();
+				expect(comp.toDate).toBe(getDate());
+				expect(comp.fromDate).toBe(getDate(false));
+				expect(comp.itemsPerPage).toBe(ITEMS_PER_PAGE);
+				expect(comp.page).toBe(1);
+				expect(comp.reverse).toBeFalsy();
+				expect(comp.orderProp).toBe('timestamp');
+			});
+		});
+	});
 });

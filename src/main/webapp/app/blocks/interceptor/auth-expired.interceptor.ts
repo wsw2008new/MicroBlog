@@ -1,8 +1,5 @@
 import { Injector } from '@angular/core';
-import {
-	RequestOptionsArgs,
-	Response
-} from '@angular/http';
+import { RequestOptionsArgs, Response } from '@angular/http';
 import { JhiHttpInterceptor } from 'ng-jhipster';
 import { Observable } from 'rxjs/Observable';
 import { LoginService } from '../../shared/login/login.service';

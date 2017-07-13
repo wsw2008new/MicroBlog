@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-	Http,
-	Response
-} from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { createRequestOption } from '../model/request-util';
 import { ResponseWrapper } from '../model/response-wrapper.model';

@@ -2,7 +2,7 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "com.microblog",
-      "nativeLanguage": "tr"
+      "nativeLanguage": "en"
     },
     "jhipsterVersion": "4.6.1",
     "baseName": "microblog",
@@ -18,7 +18,7 @@
     "prodDatabaseType": "mongodb",
     "searchEngine": false,
     "messageBroker": false,
-    "serviceDiscoveryType": "eureka",
+    "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSocialSignIn": false,
     "jwtSecretKey": "7e719f23dd20a820e44005f87dd5daf41d5db6cd",
@@ -29,10 +29,10 @@
     "testFrameworks": [],
     "jhiPrefix": "jhi",
     "enableTranslation": true,
-    "nativeLanguage": "tr",
+    "nativeLanguage": "en",
     "languages": [
-      "tr",
-      "en"
+      "en",
+      "tr"
     ]
   }
 }

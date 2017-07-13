@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-	NgbModal,
-	NgbModalRef
-} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 import { JhiLoginModalComponent } from './login.component';
 

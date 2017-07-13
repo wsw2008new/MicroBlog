@@ -1,23 +1,7 @@
 import { DatePipe } from '@angular/common';
-import {
-	CUSTOM_ELEMENTS_SCHEMA,
-	NgModule
-} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
-import {
-	AccountService,
-	AuthServerProvider,
-	CSRFService,
-	HasAnyAuthorityDirective,
-	JhiLoginModalComponent,
-	LoginModalService,
-	LoginService,
-	MicroblogSharedCommonModule,
-	MicroblogSharedLibsModule,
-	Principal,
-	StateStorageService,
-	UserService
-} from './';
+import { AccountService, AuthServerProvider, CSRFService, HasAnyAuthorityDirective, JhiLoginModalComponent, LoginModalService, LoginService, MicroblogSharedCommonModule, MicroblogSharedLibsModule, Principal, StateStorageService, UserService } from './';
 
 @NgModule({
 	imports: [

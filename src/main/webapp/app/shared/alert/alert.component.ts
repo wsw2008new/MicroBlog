@@ -1,8 +1,4 @@
-import {
-	Component,
-	OnDestroy,
-	OnInit
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { JhiAlertService } from 'ng-jhipster';
 
 @Component({

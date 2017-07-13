@@ -8,21 +8,9 @@ import { PaginationConfig } from './blocks/config/uib-pagination.config';
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { MicroblogEntityModule } from './entities/entity.module';
 import { MicroblogHomeModule } from './home/home.module';
-import {
-	ActiveMenuDirective,
-	ErrorComponent,
-	FooterComponent,
-	JhiMainComponent,
-	LayoutRoutingModule,
-	NavbarComponent,
-	PageRibbonComponent,
-	ProfileService
-} from './layouts';
+import { ActiveMenuDirective, ErrorComponent, FooterComponent, JhiMainComponent, LayoutRoutingModule, NavbarComponent, PageRibbonComponent, ProfileService } from './layouts';
 
-import {
-	MicroblogSharedModule,
-	UserRouteAccessService
-} from './shared';
+import { MicroblogSharedModule, UserRouteAccessService } from './shared';
 import './vendor.ts';
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here

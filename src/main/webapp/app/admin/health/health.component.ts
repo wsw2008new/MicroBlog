@@ -1,7 +1,4 @@
-import {
-	Component,
-	OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiHealthModalComponent } from './health-modal.component';
 
@@ -16,7 +13,7 @@ export class JhiHealthCheckComponent implements OnInit {
 	updatingHealth: boolean;
 
 	constructor(private modalService: NgbModal,
-		private healthService: JhiHealthService) {
+	            private healthService: JhiHealthService) {
 
 	}
 

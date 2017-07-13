@@ -19,12 +19,13 @@
 				<tr>
 					<th (click)="orderProp = 'timestamp'; reverse=!reverse">
 						<span jhiTranslate="audits.table.header.date">Date</span></th>
-					<th (click)="orderProp = 'principal'; reverse=!reverse"><span jhiTranslate="audits.table.header.principal">User</span>
-					</th>
+					<th (click)="orderProp = 'principal'; reverse=!reverse">
+						<span jhiTranslate="audits.table.header.principal">User</span></th>
 					<th (click)="orderProp = 'type'; reverse=!reverse">
-						<span jhiTranslate="audits.table.header.status">State</span></th>
-					<th (click)="orderProp = 'data.message'; reverse=!reverse"><span jhiTranslate="audits.table.header.data">Extra data</span>
+						<span jhiTranslate="audits.table.header.status">State</span>
 					</th>
+					<th (click)="orderProp = 'data.message'; reverse=!reverse">
+						<span jhiTranslate="audits.table.header.data">Extra data</span></th>
 				</tr>
 			</thead>
 			<tr *ngFor="let audit of getAudits()">

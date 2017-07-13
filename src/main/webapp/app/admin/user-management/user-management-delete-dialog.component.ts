@@ -1,19 +1,9 @@
-import {
-	Component,
-	OnDestroy,
-	OnInit
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {
-	NgbActiveModal,
-	NgbModalRef
-} from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import {
-	User,
-	UserService
-} from '../../shared';
+import { User, UserService } from '../../shared';
 import { UserModalService } from './user-modal.service';
 
 @Component({
@@ -25,8 +15,8 @@ export class UserMgmtDeleteDialogComponent {
 	user: User;
 
 	constructor(private userService: UserService,
-		public activeModal: NgbActiveModal,
-		private eventManager: JhiEventManager) {
+	            public activeModal: NgbActiveModal,
+	            private eventManager: JhiEventManager) {
 	}
 
 	clear() {
@@ -54,7 +44,7 @@ export class UserDeleteDialogComponent implements OnInit, OnDestroy {
 	routeSub: any;
 
 	constructor(private route: ActivatedRoute,
-		private userModalService: UserModalService) {
+	            private userModalService: UserModalService) {
 	}
 
 	ngOnInit() {

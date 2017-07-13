@@ -8,12 +8,12 @@ import { Principal } from '../auth/principal.service';
 export class LoginService {
 
 	constructor(private languageService: JhiLanguageService,
-		private principal: Principal,
-		private authServerProvider: AuthServerProvider) {
+	            private principal: Principal,
+	            private authServerProvider: AuthServerProvider) {
 	}
 
 	login(credentials, callback?) {
-		const cb = callback || function() {
+		const cb = callback || function () {
 			};
 
 		return new Promise((resolve, reject) => {

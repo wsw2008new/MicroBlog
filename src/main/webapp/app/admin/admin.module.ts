@@ -1,35 +1,8 @@
-import {
-	CUSTOM_ELEMENTS_SCHEMA,
-	NgModule
-} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { MicroblogSharedModule } from '../shared';
-import {
-	adminState,
-	AuditsComponent,
-	AuditsService,
-	JhiConfigurationComponent,
-	JhiConfigurationService,
-	JhiDocsComponent,
-	JhiHealthCheckComponent,
-	JhiHealthModalComponent,
-	JhiHealthService,
-	JhiMetricsMonitoringComponent,
-	JhiMetricsMonitoringModalComponent,
-	JhiMetricsService,
-	LogsComponent,
-	LogsService,
-	UserDeleteDialogComponent,
-	UserDialogComponent,
-	UserMgmtComponent,
-	UserMgmtDeleteDialogComponent,
-	UserMgmtDetailComponent,
-	UserMgmtDialogComponent,
-	UserModalService,
-	UserResolve,
-	UserResolvePagingParams
-} from './';
+import { adminState, AuditsComponent, AuditsService, JhiConfigurationComponent, JhiConfigurationService, JhiDocsComponent, JhiHealthCheckComponent, JhiHealthModalComponent, JhiHealthService, JhiMetricsMonitoringComponent, JhiMetricsMonitoringModalComponent, JhiMetricsService, LogsComponent, LogsService, UserDeleteDialogComponent, UserDialogComponent, UserMgmtComponent, UserMgmtDeleteDialogComponent, UserMgmtDetailComponent, UserMgmtDialogComponent, UserModalService, UserResolve, UserResolvePagingParams } from './';
 /* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
 
 @NgModule({

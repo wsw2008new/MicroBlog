@@ -1,15 +1,9 @@
-import {
-	CUSTOM_ELEMENTS_SCHEMA,
-	NgModule
-} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { MicroblogSharedModule } from '../shared';
 
-import {
-	HOME_ROUTE,
-	HomeComponent
-} from './';
+import { HOME_ROUTE, HomeComponent } from './';
 
 @NgModule({
 	imports: [

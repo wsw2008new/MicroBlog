@@ -1,12 +1,6 @@
-import {
-	Component,
-	OnDestroy
-} from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-	JhiAlertService,
-	JhiEventManager
-} from 'ng-jhipster';
+import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
